@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HALG 2019</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+        
+
+            
+        <link href="user/plugins/markdown-notices/assets/notices.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/form/assets/form-styles.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/login/css/login.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/themes/halg/css/custom.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+    
+        
+
+     <div class="jumbotron" style="background-image: url(user/themes/halg/images/heading2019.jpg);">
+      <div class="container">
+        <div class = "row ">
+         <div class = "col-md-12">
+          <div style = "float:left"> 
+            <h1><a href = "index.html">HIGHLIGHTS OF ALGORITHMS</a></h1>
+            <p>University of Copenhagen, June 14-16, 2019</p>
+          </div>
+          <div style ="float:right" class = "mobile-hide">
+            <!--<img src = "http://schloeter.org/IMG_HALG17/TU_Logo.png" width = "130" class = "img-align">-->
+            <img src = "user/themes/halg/images/Logo2019.png" width = "200" class = "img-align">
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+
+                   <nav class="navbar navbar-inverse" >
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_data" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar_data">
+      <ul class="nav navbar-nav">
+                        <li >
+        <a href="index.html">
+                    <span class="glyphicon glyphicon-home glyphicon-large" aria-hidden="true"></span><br/>        HALG 2019</a>
+        </li>
+                        <li >
+        <a href="committee">
+                    <span class="glyphicon glyphicon-info-sign glyphicon-large" aria-hidden="true"></span><br/>        Committee</a>
+        </li>
+                        <li >
+        <a href="call">
+                    <span class="glyphicon glyphicon-bullhorn glyphicon-large" aria-hidden="true"></span><br/>        Call</a>
+        </li>
+                        <li >
+        <a href="speakers">
+                    <span class="glyphicon glyphicon-user glyphicon-large" aria-hidden="true"></span><br/>        Invited Speakers</a>
+        </li>
+                        <li >
+        <a href="programme">
+                    <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br/>        Programme</a>
+        </li>
+                        <li >
+        <a href="registration">
+                    <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br/>        Registration</a>
+        </li>
+                        <li >
+        <a href="venue">
+                    <span class="glyphicon glyphicon-map-marker glyphicon-large" aria-hidden="true"></span><br/>        Venue</a>
+        </li>
+                        <li >
+        <a href="guide">
+                    <span class="glyphicon glyphicon-cutlery glyphicon-large" aria-hidden="true"></span><br/>        Guide</a>
+        </li>
+                        <li  class = "active_nav" >
+        <a href="hotels">
+                    <span class="glyphicon glyphicon-bed glyphicon-large" aria-hidden="true"></span><br/>        Hotels</a>
+        </li>
+                        <li >
+        <a href="anti-harassment">
+                    <span class="glyphicon glyphicon-exclamation-sign glyphicon-large" aria-hidden="true"></span><br/>        Anti-Harassment Policy</a>
+        </li>
+                </ul>
+    </div>
+    </div>
+</nav>
+  
+
+
+  <div class="content">
+   <div class="container">
+    <!--content of page-->  
+
+    
+	<h1>Hotel information</h1>
+<p>Below you can find information on the hotel options we have for HALG 19. Hotels in Copenhagen are very busy in the summer time, so we strongly recommend that you book your hotel as soon as possible. </p>
+<p>We have made agreements with two hotels you might consider, but you should certainly check the usual search engines.</p>
+<p>We have reserved 30 rooms from 14-16 June 2019 at the Cabinn Scandinavia Hotel at a special rate of approximately EUR 88 per night (single room), EUR 115 per night (double room) and EUR 141 per night (triple room) (breakfast inclusive). This rate is available until 14 April 2019, or until all rooms are booked. In order to book, please use this link <a href="https://www.cabinn.com/en/hotel/cabinn-scandinavia-hotel?blockCode=0916Univer&arrivaldate=2019-06-13&staydays=5&numguests=1">Booking Cabinn Scandinavia</a>.</p>
+<p>We have also prebooked 30 rooms from 13-16 June 2019 at Scandic Copenhagen. The rooms are all single rooms at the approximate rate of EUR 205 per night (breakfast inclusive). The rooms are available until 13 May 2019 or until all rooms are booked. Please use this link <a href="https://www.scandichotels.com/hotelreservation/select-rate?hotel=749&fromDate=2019-06-13&toDate=2019-06-14&room%5B0%5D.adults=1&bookingCode=BARC130619">Booking Scandic Hotel</a> and use the code: BARC130619</p>
+<p>If you wish to find your own hotel you can find inspiration on the map – the two prebooked hotels are marked with purple houses. Other hotels are marked with pins – yellow pins indicate lower priced hotels and hostels, some with possibilities for sharing room. Clicking the name, opens a box in the map where you can go to the hotel webpage. The conference venue has a blue home icon. It is easily accessible by public transport - there is bus stop next to the university.</p>
+<iframe src="https://www.google.com/maps/d/embed?mid=1g67owAU59f4sTYKall8-emtisMQn0boj&amp;hl=da" width="640" height="480"></iframe>
+
+
+  </div> <!-- /container -->
+</div> <!-- /content -->
+
+<!-- @component: footer -->
+<div class="container">
+  <footer class="footer">
+   <p>&copy; Highlights of Algorithms 2019</p>
+ </footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://2019.highlightsofalgorithms.org/js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>HALG 2019</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+        
+
+            
+        <link href="user/plugins/markdown-notices/assets/notices.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/form/assets/form-styles.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/login/css/login.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/themes/halg/css/custom.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+    
+        
+
+     <div class="jumbotron" style="background-image: url(user/themes/halg/images/heading2019.jpg);">
+      <div class="container">
+        <div class = "row ">
+         <div class = "col-md-12">
+          <div style = "float:left"> 
+            <h1><a href = "index.html">HIGHLIGHTS OF ALGORITHMS</a></h1>
+            <p>University of Copenhagen, June 14-16, 2019</p>
+          </div>
+          <div style ="float:right" class = "mobile-hide">
+            <!--<img src = "http://schloeter.org/IMG_HALG17/TU_Logo.png" width = "130" class = "img-align">-->
+            <img src = "user/themes/halg/images/Logo2019.png" width = "200" class = "img-align">
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+
+                   <nav class="navbar navbar-inverse" >
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_data" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar_data">
+      <ul class="nav navbar-nav">
+                        <li >
+        <a href="index.html">
+                    <span class="glyphicon glyphicon-home glyphicon-large" aria-hidden="true"></span><br/>        HALG 2019</a>
+        </li>
+                        <li >
+        <a href="committee">
+                    <span class="glyphicon glyphicon-info-sign glyphicon-large" aria-hidden="true"></span><br/>        Committee</a>
+        </li>
+                        <li  class = "active_nav" >
+        <a href="call">
+                    <span class="glyphicon glyphicon-bullhorn glyphicon-large" aria-hidden="true"></span><br/>        Call</a>
+        </li>
+                        <li >
+        <a href="speakers">
+                    <span class="glyphicon glyphicon-user glyphicon-large" aria-hidden="true"></span><br/>        Invited Speakers</a>
+        </li>
+                        <li >
+        <a href="programme">
+                    <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br/>        Programme</a>
+        </li>
+                        <li >
+        <a href="registration">
+                    <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br/>        Registration</a>
+        </li>
+                        <li >
+        <a href="venue">
+                    <span class="glyphicon glyphicon-map-marker glyphicon-large" aria-hidden="true"></span><br/>        Venue</a>
+        </li>
+                        <li >
+        <a href="guide">
+                    <span class="glyphicon glyphicon-cutlery glyphicon-large" aria-hidden="true"></span><br/>        Guide</a>
+        </li>
+                        <li >
+        <a href="hotels">
+                    <span class="glyphicon glyphicon-bed glyphicon-large" aria-hidden="true"></span><br/>        Hotels</a>
+        </li>
+                        <li >
+        <a href="anti-harassment">
+                    <span class="glyphicon glyphicon-exclamation-sign glyphicon-large" aria-hidden="true"></span><br/>        Anti-Harassment Policy</a>
+        </li>
+                </ul>
+    </div>
+    </div>
+</nav>
+  
+
+
+  <div class="content">
+   <div class="container">
+    <!--content of page-->  
+
+    
+	<h1>Call for Contributed Presentations</h1>
+<p>The HALG 2019 conference seeks submissions for contributed presentations. Each presentation is expected to consist of a poster and a short talk (an invitation to the poster). There will be no conference proceedings, hence presenting work already published at a different venue or journal (or to be submitted there) is welcome.</p>
+<p>If you would like to present your results at HALG 2019, please submit their details the abstract of the talk or the contribution of the poster via <a href="https://easychair.org/conferences/?conf=halg2019">EasyChair</a></p>
+<p>The abstract should include (when relevant) information where the results have been published/accepted (e.g., conference), and where they are publicly available (e.g., arXiv). All submissions will be reviewed by the program committee, giving priority to new work not formally published yet, and to papers published in 2018 or later.</p>
+<p>Submissions deadline: March 15th, 2019</p>
+<p><strong>Late submissions will be considered subject to space constraints</strong></p>
+<p><a href="https://easychair.org/conferences/?conf=halg2019">Submit via EasyChair</a></p>
+<p><strong>OTHER CONFERENCE DATES:</strong></p>
+<ul>
+<li>
+<p>Acceptance/rejection notifications for contributed presentations will be sent on <strong>March 22nd</strong>.</p>
+</li>
+<li>
+<p>The EUR 88 per night rate for Cabinn Scandinavia Hotel is available until <strong>April 14th</strong>, or until all rooms are booked. See <a href="hotels">Hotels</a> </p>
+</li>
+<li>
+<p>Early registration deadline: <strong>April 29th</strong> <a href="https://science.easysignup.com/24/">https://science.easysignup.com/24/</a></p>
+</li>
+<li>
+<p>The rooms at Scandic Hotels is available until <strong>May 13th</strong>, or until all rooms are booked. See <a href="hotels">Hotels</a> </p>
+</li>
+<li>
+<p>Late registration deadline: <strong>May 31st</strong> </p>
+</li>
+<li>HALG 2019 conference in Copenhagen <strong>June 14-16, 2019</strong></li>
+</ul>
+<h1>Call for Nominations</h1>
+<p>The HALG 2019 conference seeks high-quality nominations for invited talks that will highlight recent advances in algorithmic research.
+Similarly to previous years, there are two categories of invited talks:</p>
+<p>A. survey (60 minutes): a survey of an algorithmic topic that has seen  exciting developments in last couple of years.</p>
+<p>B. paper (30 minutes): a significant algorithmic result appearing in a paper in 2018 or later.</p>
+<p>To nominate, please email <a href="mailto:halg2019.nominations@gmail.com">halg2019.nominations@gmail.com</a> the following information:</p>
+<ol>
+<li>
+<p>Basic details: speaker name + topic (for survey talk) or paper’s title, authors, conference/arxiv + preferable speaker (for paper talk).</p>
+</li>
+<li>Brief justification: Focus on the benefits to the audience, e.g., quality of results, importance/relevance of topic, clarity of talk, speaker’s presentation skills.</li>
+</ol>
+<p>All nominations will be reviewed by the Program Committee (PC) to select speakers that will be invited to the conference.</p>
+<p><strong>Nominations deadline: December 9, 2018 (for full consideration).</strong></p>
+<p>Please keep in mind that the conference does not provide financial support for the speakers.
+​</p>
+
+
+  </div> <!-- /container -->
+</div> <!-- /content -->
+
+<!-- @component: footer -->
+<div class="container">
+  <footer class="footer">
+   <p>&copy; Highlights of Algorithms 2019</p>
+ </footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://2019.highlightsofalgorithms.org/js/custom.js"></script>
+</body>
+</html>

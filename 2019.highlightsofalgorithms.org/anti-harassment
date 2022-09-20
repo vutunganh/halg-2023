@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Anti-Harassment Policy | HALG 2019</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
+
+        
+
+            
+        <link href="user/plugins/markdown-notices/assets/notices.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/form/assets/form-styles.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/plugins/login/css/login.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+<link href="user/themes/halg/css/custom.css?g-15a65e0d" type="text/css" rel="stylesheet" />
+
+
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+
+    </head>
+    <body>
+    
+        
+
+     <div class="jumbotron" style="background-image: url(user/themes/halg/images/heading2019.jpg);">
+      <div class="container">
+        <div class = "row ">
+         <div class = "col-md-12">
+          <div style = "float:left"> 
+            <h1><a href = "index.html">HIGHLIGHTS OF ALGORITHMS</a></h1>
+            <p>University of Copenhagen, June 14-16, 2019</p>
+          </div>
+          <div style ="float:right" class = "mobile-hide">
+            <!--<img src = "http://schloeter.org/IMG_HALG17/TU_Logo.png" width = "130" class = "img-align">-->
+            <img src = "user/themes/halg/images/Logo2019.png" width = "200" class = "img-align">
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+
+                   <nav class="navbar navbar-inverse" >
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_data" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar_data">
+      <ul class="nav navbar-nav">
+                        <li >
+        <a href="index.html">
+                    <span class="glyphicon glyphicon-home glyphicon-large" aria-hidden="true"></span><br/>        HALG 2019</a>
+        </li>
+                        <li >
+        <a href="committee">
+                    <span class="glyphicon glyphicon-info-sign glyphicon-large" aria-hidden="true"></span><br/>        Committee</a>
+        </li>
+                        <li >
+        <a href="call">
+                    <span class="glyphicon glyphicon-bullhorn glyphicon-large" aria-hidden="true"></span><br/>        Call</a>
+        </li>
+                        <li >
+        <a href="speakers">
+                    <span class="glyphicon glyphicon-user glyphicon-large" aria-hidden="true"></span><br/>        Invited Speakers</a>
+        </li>
+                        <li >
+        <a href="programme">
+                    <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br/>        Programme</a>
+        </li>
+                        <li >
+        <a href="registration">
+                    <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br/>        Registration</a>
+        </li>
+                        <li >
+        <a href="venue">
+                    <span class="glyphicon glyphicon-map-marker glyphicon-large" aria-hidden="true"></span><br/>        Venue</a>
+        </li>
+                        <li >
+        <a href="guide">
+                    <span class="glyphicon glyphicon-cutlery glyphicon-large" aria-hidden="true"></span><br/>        Guide</a>
+        </li>
+                        <li >
+        <a href="hotels">
+                    <span class="glyphicon glyphicon-bed glyphicon-large" aria-hidden="true"></span><br/>        Hotels</a>
+        </li>
+                        <li  class = "active_nav" >
+        <a href="anti-harassment">
+                    <span class="glyphicon glyphicon-exclamation-sign glyphicon-large" aria-hidden="true"></span><br/>        Anti-Harassment Policy</a>
+        </li>
+                </ul>
+    </div>
+    </div>
+</nav>
+  
+
+
+  <div class="content">
+   <div class="container">
+    <!--content of page-->  
+
+    
+	<h1>Policy Against Harassment at HALG</h1>
+<p>HALG adopts the recommendations of the <a href="https://www.ics.uci.edu/~irani/safetoc.html">SafeTOC report</a> to combat harassment and discrimination in the Theory of Computing community.</p>
+<p>All participants at HALG must observe the code of conduct of HALG reported here. </p>
+<h2>Code of Conduct at HALG</h2>
+<p>The open exchange of ideas is central to the mission of HALG. This requires an environment that embraces diversity and provides a safe, welcoming environment for all. This policy applies to all conference-related activities, including:</p>
+<ul>
+<li>all conference sessions and events sponsored by the conference</li>
+<li>all ancillary events and unofficial social gatherings, even those outside the conference venue</li>
+<li>exchanges among committees or other bodies associated with HALG, including social media.</li>
+</ul>
+<h3>Expected Behavior</h3>
+<p>We expect that all participants at HALG activities to abide by this policy:</p>
+<ul>
+<li>Exercise respect in your speech and actions. </li>
+<li>Refrain from demeaning, discriminatory, or harassing behavior and speech.</li>
+<li>Be mindful of your surroundings and your fellow participants: for example, other people may hear inappropriate comments even if they are not your intended audience.</li>
+<li>Alert community leaders and get involved (if safe and possible) when you notice dangerous situation, someone in distress, or violations of this policy, even if they seem inconsequential.</li>
+</ul>
+<h3>Unacceptable Behavior</h3>
+<p>Unacceptable at any conference related activity is:</p>
+<ul>
+<li>Abuse: Any action directed at an individual that (a) interferes substantially with that person's participation; or (b) causes that person to fear for his/her personal safety. This includes threats, intimidation, bullying, stalking, or other types of abuse.</li>
+<li>Discriminatory Harassment: Any conduct that discriminates or denigrates an individual on the basis of race, ethnicity, religion, citizenship, nationality, age, sexual or gender identity, disability, or any other characteristic protected by law in the location where the conference activity takes place.</li>
+<li>
+<p>Sexual Harassment: Unwelcome sexual advances, requests for sexual favors, or other verbal/physical conduct of a sexual nature. Examples include (but are not limited to):</p>
+<ul>
+<li>unwelcome advances or propositions, particularly when one individual has authority over the other;</li>
+<li>inappropriate touching of an individual's body;</li>
+<li>degrading or humiliating comments about an individual's appearance;</li>
+<li>using an activity-related communication channel to display or distribute sexually explicit images or messages;</li>
+</ul>
+</li>
+</ul>
+<p>Harassment can also occur when there is no deliberate intention to offend. Be careful in the words that you choose. Harassment committed in a joking manner or disguised as a compliment still constitutes unacceptable behavior. Remember that sexist, racist, and other exclusionary jokes can be offensive to those around you.</p>
+<h3>Consequences of Unacceptable Behavior</h3>
+<p>If a participant at HALG engages in prohibited behavior, the conference leaders reserve the right to take any action deemed appropriate to ensure the physical and emotional safety of the attendees, including removing an individual from the conference without warning or refund. Appropriate sanctions also will be taken toward any individual who knowingly makes a false allegation of harassment.</p>
+<h3>Network of Advocates</h3>
+<p>There will always be at least one trained ToC advocate at every HALG in attendance. If you feel that you have experienced harassment or witness an incident involving harassment, you are encouraged to approach the ToC advocate in attendance about the matter. That person can</p>
+<ul>
+<li>provide support and advice to navigate the situation</li>
+<li>take measures to help ensure your safety if you feel at risk</li>
+<li>explain to you what procedures are available to you to make a formal complaint should you decide to do that.</li>
+<li>The ToC advocate will keep the matter strictly confidential if you request, although some ToC advocates are under mandatory reporting obligations if the ToC advocate and the person accused are from the same institution. If for some reason you do not wish to approach one of the attending ToC advocates regarding a harassment incident, it is also possible to contact the conference chair or any steering committee member.</li>
+</ul>
+<h2>The ToC advocates for HALG 2019 are:</h2>
+<p>Fabrizio Grandoni: <a href="mailto:fabrizio@idsia.ch">fabrizio@idsia.ch</a> <br />
+Eva Rotenberg: <a href="mailto:eva.rotenberg@gmail.com">eva.rotenberg@gmail.com</a> <br />
+Virginia Vassilevska Williams: <a href="mailto:virgito@gmail.com">virgito@gmail.com</a></p>
+<h3>Reporting Unacceptable Behavior at Conference Activities</h3>
+<p>In the event of unacceptable behavior, the best people to approach are the ToC advocates attending the conference. If you feel uncomfortable approaching any of the ToC advocates present, then you can approach the conference chair or the members of the HALG steering committee. These individuals can provide information about the process for handling complaints or handling immediate onsite needs. </p>
+
+
+  </div> <!-- /container -->
+</div> <!-- /content -->
+
+<!-- @component: footer -->
+<div class="container">
+  <footer class="footer">
+   <p>&copy; Highlights of Algorithms 2019</p>
+ </footer>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="http://2019.highlightsofalgorithms.org/js/custom.js"></script>
+</body>
+</html>
