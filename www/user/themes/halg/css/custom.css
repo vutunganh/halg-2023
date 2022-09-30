@@ -183,7 +183,7 @@ IMG.displayed {
 }
 
 .jumbotron .container{
-	background-image: url("http://schloeter.org/IMG_HALG17/background.png");
+  background-color: rgba(254, 254, 254, 0.8);
 	border-radius:5px;
 	position: relative;
 }
