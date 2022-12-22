@@ -1,3 +1,67 @@
+/* Essentially copies Boostrap's .jumbotron */
+.page-header {
+  background-size: cover;
+  margin: 0;
+  padding: 3rem 0 3rem 0;
+}
+
+.page-header__container {
+  padding: 0 1em 0 1em;
+  margin: 0 auto 0 auto;
+  background-color: rgba(254, 254, 254, 0.8);
+  border-radius: 5px;
+
+  display: grid;
+  grid-template:
+    "title"
+    "location"
+    / auto;
+}
+
+.page-header__container__title {
+  font-size: 4rem;
+  grid-area: title;
+}
+
+.page-header__container a {
+  color: #5371a3;
+}
+
+.page-header__container__location {
+  grid-area: location;
+	font-family: 'Oswald', sans-serif;
+  font-size: 2rem;
+  color: #63625f;
+  font-weight: 200;
+}
+
+.page-header__container__logo {
+  display: none;
+  grid-area: logo;
+  justify-self: end;
+  align-self: center;
+}
+
+@media (min-width: 768px) {
+  .page-header__container {
+    grid-template:
+      "title logo"
+      "location logo"
+      / auto auto;
+  }
+
+  .page-header__container__logo {
+    display: block;
+    width: 150px;
+  }
+}
+
+@media (min-width: 960px) {
+  .page-header__container__logo {
+    width: 200px;
+  }
+}
+
 .header-image {
   background-image: url(images/header.webp);
   background-position: center center;
