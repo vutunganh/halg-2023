@@ -79,3 +79,35 @@
   column-gap: 4rem;
   margin-top: 4rem;
 }
+
+.survey-speakers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 3rem 2rem;
+}
+
+.survey-speakers__speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(80vw, 200px);
+  height: min(90vw, 300px);
+}
+
+.survey-speakers__speaker__photo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.survey-speakers__speaker__photo-wrapper img {
+  width: 100%;
+}
+
+.survey-speakers__speaker__name {
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
