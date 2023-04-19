@@ -369,3 +369,5 @@ def send_static(filename):
     return static_file(filename, root='../')
 
 app.run(host='127.0.0.1', port=8080)
+
+root_app = Bottle()
