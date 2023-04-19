@@ -1,11 +1,16 @@
-from bottle import Bottle, request, static_file, view
+from bottle import Bottle, LocalRequest, request, view, abort, static_file
 from argparse import ArgumentParser
 from yoyo import get_backend, read_migrations
-from smtplib import SMTP_SSL
+from gpwebpay import gpwebpay
+from gpwebpay.config import configuration as gpWebpayConfig
+import urllib.parse
 import tomllib
 import psycopg2
 import logging
 import datetime
+import base64
+
+from email_utils.email_utils import Emailer
 
 # App code overview.
 # - define cli arguments
@@ -141,11 +146,15 @@ def register_participant(participant: ParticipantInfo):
     participant (name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student)
     VALUES
     (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    RETURNING id
     """,
     (participant.name, participant.surname, participant.email, participant.affiliation, participant.address, participant.city, participant.country, participant.zip_code, participant.vat_tax_no, participant.is_student
     ))
-
+    id = cursor.fetchone()[0]
     db_conn.commit()
+    cursor.close()
+    return id
+
 
 def check_existing_user(email: str) -> bool:
     cursor = db_conn.cursor()
@@ -160,8 +169,51 @@ def check_existing_user(email: str) -> bool:
 
     res = cursor.fetchone()[0]
     db_conn.commit()
+    cursor.close()
     return res
 
+def set_participant_payment_url(participant_id: int, payment_url: str):
+    cursor = db_conn.cursor()
+    cursor.execute("""
+    UPDATE participant
+    SET payment_url = %s
+    WHERE id = %s
+    """, (payment_url, participant_id,))
+
+    db_conn.commit()
+    cursor.close()
+
+# `order_number` is participant's id in our case.
+# Yes, if their payment fails, somebody will have to manually intervene and,
+# e.g., remove that participant from the database, and make them register again
+# to get a new `payment_url`. There is no time :(
+def retrieve_payment_url(order_number: int) -> str:
+    cursor = db_conn.cursor()
+    cursor.execute("""
+    SELECT payment_url
+    FROM participant
+    WHERE id = %s
+    """, (order_number,))
+
+    res = cursor.fetchone()
+    if res is None:
+        logging.error('Could not find an existing participant with id "{order_number}". They should exist because they managed to pay.')
+        abort(500, 'Could not confirm payment. Please contact the organizers.')
+
+    cursor.close()
+    return res[0]
+
+
+# Initialize mailer class
+mailer = Emailer(
+    app_config['Email']['server'],
+    app_config['Email']['port'],
+    app_config['Email']['username'],
+    app_config['Email']['password'],
+    app_config['Email']['from'],
+    app_config['Email']['content']['subject_prefix'],
+    app_config['Email']['enabled'],
+)
 
 # Run web server
 
@@ -176,6 +228,15 @@ app = Bottle()
 def show_registration_form():
     return dict()
 
+# Web server utils
+
+def retrieve_form_field(request: LocalRequest, field_name: str) -> str | None:
+    field = request.forms.get(field_name)
+    if field is None:
+        return None
+
+    return field.strip()
+
 # TODO: Set this route to root.
 #       See @app.get('/registration.html') for the reason.
 @app.post('/registration.html')
@@ -184,8 +245,7 @@ def register():
     errors = []
 
     def retrieve_field(field_name: str) -> str | None:
-        field = request.forms.get(field_name).strip()
-        return field or None
+        return retrieve_form_field(request, field_name)
 
     def retrieve_nonempty_field(field_name: str) -> str:
         res = retrieve_field(field_name) or ''
@@ -227,8 +287,6 @@ def register():
     # we have to convert them to a string here
     is_student = True if is_student_field == "on" else False
 
-    print(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student)
-
     if len(errors) > 0:
         return dict(errors=errors)
 
@@ -236,17 +294,73 @@ def register():
         errors.append('A participant with email address "{}" is already registered.'.format(email))
         return dict(errors=errors)
 
+    # Write participant to the db
     try:
-        register_participant(ParticipantInfo(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student))
+        new_participant_id = register_participant(ParticipantInfo(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student))
     except:
         errors.append('''
         An error has occurred  when registering the participant.
         Please, send a message to the organizers.
         ''')
-
+        logging.error('Could not register participant with email "{}"'.format(email))
+        
         return dict(errors=errors)
 
-    return dict(errors=[])
+    # Request payment
+    # inspired by
+    #   https://github.com/filias/gpwebpay_demoshop/blob/master/app.py#L32
+    #   https://github.com/filias/gpwebpay
+    gw = gpwebpay.GpwebpayClient()
+    key_bytes = base64.b64decode(gpWebpayConfig.GPWEBPAY_MERCHANT_PRIVATE_KEY)
+    payment_amount = app_config['Payment']['adult_price']
+    if is_student:
+        payment_amount = app_config['Payment']['student_price']
+    payment_amount = int(payment_amount) * int(app_config['Payment']['haler_multiplier'])
+
+    try:
+        payment_gate_resp = gw.request_payment(
+            amount=payment_amount,
+            key=key_bytes,
+            order_number=str(new_participant_id),
+        )
+        if not payment_gate_resp.ok:
+            logging.error(
+                f'Could not create payment for "{email}".'
+                f' Status code: "{payment_gate_resp.status_code}".'
+                f' Reason: "{payment_gate_resp.reason}".'
+                f' Content: "{payment_gate_resp.content}".'
+                f' URL: "{payment_gate_resp.url}".'
+            )
+            raise Exception()
+        set_participant_payment_url(new_participant_id, payment_gate_resp.url)
+    except:
+        errors.append('Could not create payment URL. Please contact the organizers.')
+        return dict(errors=errors)
+
+    return dict(errors=[], payment_url=payment_gate_resp.url)
+
+@app.route('/registration/payment_callback')
+@view('payment_callback')
+def payment_callback():
+    gw = gpwebpay.GpwebpayClient()
+    key_bytes = base64.b64decode(gpWebpayConfig.GPWEBPAY_PUBLIC_KEY)
+
+    url_qs = urllib.parse.parse_qs(urllib.parse.urlparse(request.url).query)
+    order_no = url_qs['ORDERNUMBER'][0]
+    if order_no is None:
+        logging.error('Did not receive an order number while verifying a payment.')
+        return dict(payment_successful=False)
+
+    payment_verification_result = gw.get_payment_result(request.url, key_bytes)
+    if payment_verification_result == {'RESULT': 'The payment communication was compromised.'}:
+        logging.error(f'Received compromised message when verifying payment for participant "{order_no}".')
+        return dict(payment_successful=False)
+
+    if payment_verification_result['PRCODE'] != 0:
+        logging.error(f'Seems like payment for user "{order_no}" did not end successfully.')
+        return dict(payment_successful=False)
+
+    return dict(payment_successful=True)
 
 # TODO: Remove this.
 #       This is only used to substitute a webserver during development.
@@ -254,4 +368,4 @@ def register():
 def send_static(filename):
     return static_file(filename, root='../')
 
-app.run(reloader=True, debug=True)
+app.run(host='127.0.0.1', port=8080)

@@ -7,3 +7,22 @@ password = "halg"
 
 [Database.migrations]
 path = "db/migrations/"
+
+[Email]
+enabled = false
+server = "kam.mff.cuni.cz"
+port = 26
+username = "halg"
+password = "very-secret"
+from = "halg@kam.mff.cuni.cz"
+
+[Email.content]
+subject_prefix = "[HALG 2023]"
+
+[Payment]
+# prices are in CZK
+haler_multiplier = 100 # how many halers are one crown?
+# flip to 3500 and 5000 respectively once early registration is over
+student_price = 2600
+adult_price = 3500
+receipt_description = "HALG 2023 registration fee" # not used atm because the payment gate library sucks

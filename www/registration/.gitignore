@@ -23,3 +23,9 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
+
+# GP webpay stuff
+gpe.signing_test.cer
+gpe.signing_test.pem
+gpe.txt
+gpwebpay-pvk.key
