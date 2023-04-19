@@ -62,7 +62,7 @@
             <a href="programme.html">
               <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br>Programme</a>
           </li>
-          <li class="active_nav">
+          <li>
             <a href="registration.html">
               <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br>Registration</a>
           </li>
@@ -85,103 +85,19 @@
   
   <div class="content">
     <div class="container">
-      <h1>Registration</h1>
-      <p><strong>TBA</strong></p>
-      <!-- <p>Early registration (by April 29, 2019)</p> -->
-      <!-- <ul> -->
-      <!-- <li>Students: € 115 </li> -->
-      <!-- <li>Non-students: € 160</li> -->
-      <!-- </ul> -->
-      <!-- <p>Late registration (by May, 31, 2019)</p> -->
-      <!-- <ul> -->
-      <!-- <li>Students: € 165</li> -->
-      <!-- <li>Non-students: € 210</li> -->
-      <!-- </ul> -->
-      <!-- <p>Registration includes lunches all three days of the conference, coffee breaks and reception at the first poster session.</p> -->
-      <!-- <p>The registration is now open - please use this link <a href="https://science.easysignup.com/24/">https://science.easysignup.com/24/</a></p> -->
-      <!-- <p>Student rates are only valid for: PhD students, Bachelor's- and Master's degree students.</p> -->
-
-      <h2 id="registration-form">Registration form</h2>
-      <form id="registration-form" name="registrationForm" action="/registration.html#registration-form" method="post">
-        % if 'errors' in locals():
-          % if len(errors) > 0:
-            <div class="form-message form-message--errors">
-              <h3>Errors</h3>
-              <ul>
-                % for error in errors:
-                <li>{{error}}</li>
-                % end
-              </ul>
-            </div>
-          % else:
-            <div class="form-message form-message--success">
-              <h3>Success</h3>
-              You will be redirected to the payment gate soon (10 seconds).
-              If nothing happens, please click the following link.
-              <a href="{{payment_url}}">Link to payment gate.</a>
-            </div>
-            <script>
-            setTimeout(function() {
-              window.location.href = "{{payment_url}}"
-            }, 10000)
-            </script>
-          % end
-        % end
-        <div class="input-group">
-          <label for="name">Name (required):</label>
-          <input type="text" id="name" name="name" required />
+      <h1>Payment status</h1>
+      % if payment_successful:
+        <div class="form-message form-message--success">
+          <h3>Payment successful</h3>
+          We have received your payment.
+          If you need an invoice or an invitation letter, please contact us directly.
         </div>
-
-        <div class="input-group">
-          <label for="name">Surname:</label>
-          <input type="text" id="surname" name="surname" />
+      % else:
+        <div class="form-message form-message--errors">
+          <h3>Payment unsuccessful</h3>
+          We have not managed to verify your payment.
+          If the payment gate informed you that it succeeded, please contact us.
         </div>
-
-        <div class="input-group">
-          <label for="email">Email address (required):</label>
-          <input type="email" id="email" name="email" required />
-        </div>
-
-        <div class="input-group">
-          <label for="affiliation">Affiliation:</label>
-          <input type="text" id="affiliation" name="affiliation" />
-        </div>
-
-        <div class="input-group">
-          <label for="address">Address (street etc.) (required):</label>
-          <input type="text" id="address" name="address" required />
-        </div>
-
-        <div class="input-group">
-          <label for="city">City (required):</label>
-          <input type="text" id="city" name="city" required />
-        </div>
-
-        <div class="input-group">
-          <label for="country">Country (required):</label>
-          <input type="text" id="country" name="country" required />
-        </div>
-
-        <div class="input-group">
-          <label for="zip-code">ZIP Code:</label>
-          <input type="text" id="zip-code" name="zipCode" />
-        </div>
-
-        <div class="input-group">
-          <label for="vat-tax-no">VAT/TAX no.:</label>
-          <input type="text" id="vat-tax-no" name="vatTaxNo" />
-        </div>
-
-        <div class="input-group">
-          <div>Should the participant be considered a student?</div>
-          <div>
-            <input type="checkbox" id="is-student" name="isStudent" />
-            <label for="is-student">Yes</label>
-          </div>
-        </div>
-
-        <input type="submit" value="Register" />
-      </form>
     </div>
 
     <div class="container">
