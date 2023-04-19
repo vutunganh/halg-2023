@@ -19,12 +19,12 @@
   <div class="page-header header-image">
     <div class="page-header__container container">
       <h1 class="page-header__container__title">
-        <a href="index.html">IGAFIT HIGHLIGHTS OF ALGORITHMS</a>
+        <a href="/index.html">IGAFIT HIGHLIGHTS OF ALGORITHMS</a>
       </h1>
       <p class="page-header__container__location">
         Charles University, Prague, Czech Republic. June 2-4, 2023
       </p>
-      <img class="page-header__container__logo" src="images/halg-logo.svg" />
+      <img class="page-header__container__logo" src="/images/halg-logo.svg" />
     </div>
   </div>
 
@@ -41,41 +41,41 @@
       <div class="collapse navbar-collapse" id="navbar_data">
         <ul class="nav navbar-nav">
           <li>
-            <a href="index.html">
+            <a href="/index.html">
               <span class="glyphicon glyphicon-home glyphicon-large" aria-hidden="true"></span><br>HALG 2023
             </a>
           </li>
           <li>
-            <a href="committee.html">
+            <a href="/committee.html">
               <span class="glyphicon glyphicon-info-sign glyphicon-large" aria-hidden="true"></span><br>Committee
             </a>
           </li>
           <li>
-            <a href="call.html">
+            <a href="/call.html">
               <span class="glyphicon glyphicon-bullhorn glyphicon-large" aria-hidden="true"></span><br>Call</a>
           </li>
           <li>
-            <a href="speakers.html">
+            <a href="/speakers.html">
               <span class="glyphicon glyphicon-user glyphicon-large" aria-hidden="true"></span><br>Invited Speakers</a>
           </li>
           <li>
-            <a href="programme.html">
+            <a href="/programme.html">
               <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br>Programme</a>
           </li>
           <li class="active_nav">
-            <a href="registration.html">
+            <a href="/registration">
               <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br>Registration</a>
           </li>
           <li>
-            <a href="venue.html">
+            <a href="/venue.html">
               <span class="glyphicon glyphicon-map-marker glyphicon-large" aria-hidden="true"></span><br>Venue</a>
           </li>
           <li>
-            <a href="hotels.html">
+            <a href="/hotels.html">
               <span class="glyphicon glyphicon-bed glyphicon-large" aria-hidden="true"></span><br>Hotels</a>
           </li>
           <li>
-            <a href="anti-harassment.html">
+            <a href="/anti-harassment.html">
               <span class="glyphicon glyphicon-exclamation-sign glyphicon-large" aria-hidden="true"></span><br/>Anti-Harassment Policy</a>
           </li>
         </ul>
