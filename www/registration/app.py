@@ -239,7 +239,7 @@ def retrieve_form_field(request: LocalRequest, field_name: str) -> str | None:
 
 # TODO: Set this route to root.
 #       See @app.get('/registration.html') for the reason.
-@app.post('/registration.html')
+@app.post('/')
 @view('registration')
 def register():
     errors = []
@@ -339,7 +339,7 @@ def register():
 
     return dict(errors=[], payment_url=payment_gate_resp.url)
 
-@app.route('/registration/payment_callback')
+@app.route('/payment_callback')
 @view('payment_callback')
 def payment_callback():
     gw = gpwebpay.GpwebpayClient()
@@ -364,10 +364,8 @@ def payment_callback():
 
 # TODO: Remove this.
 #       This is only used to substitute a webserver during development.
-@app.route('/<filename:path>')
-def send_static(filename):
-    return static_file(filename, root='../')
+# @app.route('/<filename:path>')
+# def send_static(filename):
+#     return static_file(filename, root='../')
 
 app.run(host='127.0.0.1', port=8080)
-
-root_app = Bottle()
