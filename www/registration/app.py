@@ -366,7 +366,7 @@ def payment_callback():
         logging.error(f'Received compromised message when verifying payment for participant "{order_no}".')
         return dict(payment_successful=False)
 
-    if payment_verification_result['PRCODE'] != 0:
+    if payment_verification_result['PRCODE'] != '0':
         logging.error(f'Seems like payment for user "{order_no}" did not end successfully.')
         return dict(payment_successful=False)
 
