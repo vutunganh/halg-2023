@@ -1,0 +1,2 @@
+ALTER TABLE participant
+ADD COLUMN has_paid BOOLEAN NOT NULL DEFAULT false;
