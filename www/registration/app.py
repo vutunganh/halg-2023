@@ -203,6 +203,16 @@ def retrieve_payment_url(order_number: int) -> str:
     cursor.close()
     return res[0]
 
+def record_successful_payment(order_number: int) -> None:
+    cursor = db_conn.cursor()
+    cursor.execute("""
+    UPDATE participant
+    SET has_paid = true
+    WHERE id = %s
+    """, (order_number,))
+    db_conn.commit()
+    cursor.close()
+
 
 # Initialize mailer class
 mailer = Emailer(
@@ -358,6 +368,12 @@ def payment_callback():
 
     if payment_verification_result['PRCODE'] != 0:
         logging.error(f'Seems like payment for user "{order_no}" did not end successfully.')
+        return dict(payment_successful=False)
+
+    try:
+        record_successful_payment(order_no)
+    except:
+        logging.error(f'Payment for "{order_no}" seems to be successful but we could not record it.')
         return dict(payment_successful=False)
 
     return dict(payment_successful=True)
