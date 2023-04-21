@@ -5,7 +5,7 @@ from gpwebpay import gpwebpay
 from gpwebpay.config import configuration as gpWebpayConfig
 from time import localtime, strftime
 import urllib.parse
-import tomllib
+import toml
 import psycopg2
 import logging
 import datetime
@@ -46,9 +46,7 @@ else:
 logging.debug('Reading configuration file "{}"'.format(config_file_path))
 
 # Load configuration
-app_config = dict()
-with open(config_file_path, "rb") as f:
-    app_config = tomllib.load(f)
+app_config = toml.load(config_file_path)
 
 # Database functions
 ## Perform database migrations

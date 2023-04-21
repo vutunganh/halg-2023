@@ -35,6 +35,7 @@ setuptools.setup(
         'six==1.16.0',
         'sqlparse==0.4.3',
         'tabulate==0.9.0',
+        'toml==0.10.2',
         'tox==3.28.0',
         'urllib3==1.25.11',
         'virtualenv==20.21.0',
