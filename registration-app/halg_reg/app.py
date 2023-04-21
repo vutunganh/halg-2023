@@ -1,4 +1,4 @@
-from bottle import Bottle, LocalRequest, request, view, abort, static_file
+from bottle import Bottle, LocalRequest, request, view, abort, static_file, TEMPLATE_PATH
 from argparse import ArgumentParser
 from yoyo import get_backend, read_migrations
 from gpwebpay import gpwebpay
@@ -247,12 +247,13 @@ mailer = Emailer(
 # Run web server
 
 app = Bottle()
+TEMPLATE_PATH.insert(0, pkg_resources.resource_filename('halg_reg', 'views'))
 
 # TODO: Set this route to root.
 #       This is for development purposes only. In production, route
 #       'registration' in the server will be handled by the app, while the rest
 #       should be served as static files.
-@app.get('/registration.html')
+@app.get('/')
 @view('registration')
 def show_registration_form():
     return dict()
