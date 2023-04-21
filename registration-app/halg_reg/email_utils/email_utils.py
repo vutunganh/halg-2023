@@ -67,7 +67,8 @@ class Emailer:
 
         try:
             smtp = SMTP_SSL(self.server, self.port)
-            smtp.login(self.username, self.password)
+            if self.username is not None and self.password is not None:
+                smtp.login(self.username, self.password)
             smtp.send_message(mail)
         except Exception as e:
             logging.error('Could not send email to "{}". Message: "{}".'.format(mail['To'], e))
