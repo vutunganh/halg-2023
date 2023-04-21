@@ -1,9 +1,6 @@
 [Database]
 connection = "postgresql://user:passwd@host/dbname?port=portnum"
 
-[Database.migrations]
-path = "db/migrations/"
-
 [Email]
 enabled = false
 server = "kam.mff.cuni.cz"
