@@ -1,9 +1,5 @@
 [Database]
-host = "127.0.0.1"
-port = 5432
-dbname = "halg"
-user = "halg"
-password = "halg"
+connection = "postgresql://user:passwd@host/dbname?port=portnum"
 
 [Database.migrations]
 path = "db/migrations/"
