@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 from yoyo import get_backend, read_migrations
 from gpwebpay import gpwebpay
 from gpwebpay.config import configuration as gpWebpayConfig
+from time import localtime, strftime
 import urllib.parse
 import tomllib
 import psycopg2
@@ -10,7 +11,7 @@ import logging
 import datetime
 import base64
 
-from email_utils.email_utils import Emailer
+from email_utils.email_utils import Emailer, EmailTemplate
 
 # App code overview.
 # - define cli arguments
@@ -213,13 +214,24 @@ def record_successful_payment(order_number: int) -> None:
     db_conn.commit()
     cursor.close()
 
+def get_participant(id: int) -> ParticipantInfo:
+    cursor = db_conn.cursor()
+
+    cursor.execute("""
+    SELECT name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student
+    FROM participant
+    WHERE id = %s
+    """, (id, ))
+
+    return ParticipantInfo(*cursor.fetchone())
+
 
 # Initialize mailer class
 mailer = Emailer(
     app_config['Email']['server'],
-    app_config['Email']['port'],
-    app_config['Email']['username'],
-    app_config['Email']['password'],
+    app_config['Email'].get('port', 0),
+    app_config['Email'].get('username', None),
+    app_config['Email'].get('password', None),
     app_config['Email']['from'],
     app_config['Email']['content']['subject_prefix'],
     app_config['Email']['enabled'],
@@ -249,7 +261,7 @@ def retrieve_form_field(request: LocalRequest, field_name: str) -> str | None:
 
 # TODO: Set this route to root.
 #       See @app.get('/registration.html') for the reason.
-@app.post('/')
+@app.post('/registration.html')
 @view('registration')
 def register():
     errors = []
@@ -316,6 +328,9 @@ def register():
         
         return dict(errors=errors)
 
+    # Prepare an email template
+    email_template_to_use = EmailTemplate.REGISTRATION_WITHOUT_PAYMENT_LINK
+
     # Request payment
     # inspired by
     #   https://github.com/filias/gpwebpay_demoshop/blob/master/app.py#L32
@@ -347,9 +362,21 @@ def register():
         errors.append('Could not create payment URL. Please contact the organizers.')
         return dict(errors=errors)
 
+    # now we know that the registration link exists
+    email_template_to_use = EmailTemplate.REGISTRATION
+
+    # Notify the participant that we know about them
+    mailer.send_email_from_template(
+        email,
+        name,
+        surname or '',
+        email_template_to_use,
+        {'payment_link': payment_gate_resp.url or ''},
+    )
+
     return dict(errors=[], payment_url=payment_gate_resp.url)
 
-@app.route('/payment_callback')
+@app.route('/registration/payment_callback')
 @view('payment_callback')
 def payment_callback():
     gw = gpwebpay.GpwebpayClient()
@@ -368,6 +395,7 @@ def payment_callback():
 
     if payment_verification_result['PRCODE'] != '0':
         logging.error(f'Seems like payment for user "{order_no}" did not end successfully.')
+        print(payment_verification_result)
         return dict(payment_successful=False)
 
     try:
@@ -375,6 +403,27 @@ def payment_callback():
     except:
         logging.error(f'Payment for "{order_no}" seems to be successful but we could not record it.')
         return dict(payment_successful=False)
+
+    participant_info = get_participant(order_no)
+    payment_amount = app_config['Payment']['adult_price']
+    if participant_info.is_student:
+        payment_amount = app_config['Payment']['student_price']
+    mailer.send_email_from_template(
+        participant_info.email,
+        participant_info.name,
+        participant_info.surname or '',
+        EmailTemplate.RECEIPT,
+        {
+            'affiliation': participant_info.affiliation or '',
+            'address': participant_info.address,
+            'city': participant_info.city,
+            'country': participant_info.country,
+            'zip_code': participant_info.zip_code or '',
+            'vat_tax_no': participant_info.vat_tax_no or '',
+            'date': strftime("%Y/%m/%d", localtime()),
+            'price': payment_amount,
+        }
+    )
 
     return dict(payment_successful=True)
 
@@ -384,4 +433,5 @@ def payment_callback():
 # def send_static(filename):
 #     return static_file(filename, root='../')
 
-app.run(host='127.0.0.1', port=8080)
+if __name__ == "__main__":
+    app.run(host='127.0.0.1', port=8080)

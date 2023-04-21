@@ -11,9 +11,9 @@ path = "db/migrations/"
 [Email]
 enabled = false
 server = "kam.mff.cuni.cz"
-port = 26
+port = 465
 username = "halg"
-password = "very-secret"
+password = "very_secret"
 from = "halg@kam.mff.cuni.cz"
 
 [Email.content]
