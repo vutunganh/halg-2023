@@ -1,0 +1,33 @@
+Dear $name $surname,
+
+we have received your payment for the conference fee. Below, you will find a
+receipt. If you need a full invoice, please contact the organizers.
+
+Best wishes,
+  HALG organizers
+
+================================================================================
+
+Charles University
+Faculty of Mathematics and Physics
+Ke Karlovu 3
+121 16   Prague 2
+VAT: CZ00216208
+Czech Republic
+
+$name $surname
+$affiliation
+$address
+$city
+$country
+$zip_code
+$vat_tax_no
+
+RECEIPT
+
+$name, $surname
+
+Registration fee - HALG 2023 (June 2-4, 2023)     CZK  $price,-    (incl.  VAT TAX 21%)
+
+        Organizing Committee
+           Prague, $date
