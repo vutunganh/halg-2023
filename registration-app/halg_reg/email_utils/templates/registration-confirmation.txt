@@ -1,0 +1,10 @@
+Dear $name $surname,
+
+Thank you for registering for HALG 2023.
+
+Please, pay your registration fee at the following link.
+
+  $payment_link
+
+Best wishes,
+  HALG organizers

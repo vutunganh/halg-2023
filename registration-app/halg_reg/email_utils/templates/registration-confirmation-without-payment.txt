@@ -1,0 +1,9 @@
+Dear $name $surname,
+
+Thank you for registering for HALG 2023.
+
+Unfortunately, an error has occurred while creating a link for payment of the
+conference fee. Please, let the organizers know that this happened.
+
+Best wishes,
+  HALG organizers

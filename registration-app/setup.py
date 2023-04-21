@@ -8,7 +8,7 @@ setuptools.setup(
     description='App for registration of HALG 2023 participants.',
     packages=['halg_reg'],
     include_package_data=True,
-    package_data={'halg_reg': ['db/migrations/*', 'views/*']},
+    package_data={'halg_reg': ['db/migrations/*', 'views/*', 'email_utils/**']},
     zip_safe=False,
     install_requires=[
         'bottle==0.12.25',
