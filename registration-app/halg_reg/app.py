@@ -269,7 +269,7 @@ def retrieve_form_field(request: LocalRequest, field_name: str) -> Optional[str]
 
 # TODO: Set this route to root.
 #       See @app.get('/registration.html') for the reason.
-@app.post('/registration.html')
+@app.post('/')
 @view('registration')
 def register():
     errors = []
@@ -384,7 +384,7 @@ def register():
 
     return dict(errors=[], payment_url=payment_gate_resp.url)
 
-@app.route('/registration/payment_callback')
+@app.route('/payment_callback')
 @view('payment_callback')
 def payment_callback():
     gw = gpwebpay.GpwebpayClient()
