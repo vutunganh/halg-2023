@@ -102,7 +102,7 @@
       <!-- <p>Student rates are only valid for: PhD students, Bachelor's- and Master's degree students.</p> -->
 
       <h2 id="registration-form">Registration form</h2>
-      <form id="registration-form" name="registrationForm" action="/registration.html#registration-form" method="post">
+      <form id="registration-form" name="registrationForm" action="#registration-form" method="post">
         % if 'errors' in locals():
           % if len(errors) > 0:
             <div class="form-message form-message--errors">
