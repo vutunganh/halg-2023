@@ -86,7 +86,7 @@
   <div class="content">
     <div class="container">
       <h1>Registration</h1>
-      <p><strong>TBA</strong></p>
+      <p><strong>This is a testing instance! Please do not use for real. Your payments will not be acknowledged.</strong></p>
       <!-- <p>Early registration (by April 29, 2019)</p> -->
       <!-- <ul> -->
       <!-- <li>Students: € 115 </li> -->
