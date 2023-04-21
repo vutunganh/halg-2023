@@ -10,6 +10,7 @@ import psycopg2
 import logging
 import datetime
 import base64
+import os
 
 from email_utils.email_utils import Emailer, EmailTemplate
 
@@ -24,20 +25,22 @@ from email_utils.email_utils import Emailer, EmailTemplate
 
 # CLI arguments
 
-cli_arg_parser = ArgumentParser(
-    prog='HALG registration',
-    description='App for registration of HALG 2023 participants.',
-    epilog='Contact tung@kam.mff.cuni.cz in case of any issues.'
-)
-cli_arg_parser.add_argument(
-    '-c',
-    '--config',
-    default='config.example.toml',
-    help='Location of a configuration file.'
-)
-
-cli_args = cli_arg_parser.parse_args()
-config_file_path = cli_args.config
+if 'HALG_CONFIG' in os.environ:
+    config_file_path = os.environ['HALG_CONFIG']
+else:
+    cli_arg_parser = ArgumentParser(
+        prog='HALG registration',
+        description='App for registration of HALG 2023 participants.',
+        epilog='Contact tung@kam.mff.cuni.cz in case of any issues.'
+    )
+    cli_arg_parser.add_argument(
+        '-c',
+        '--config',
+        default='config.example.toml',
+        help='Location of a configuration file.'
+    )
+    cli_args = cli_arg_parser.parse_args()
+    config_file_path = cli_args.config
 logging.debug('Reading configuration file "{}"'.format(config_file_path))
 
 # Load configuration
