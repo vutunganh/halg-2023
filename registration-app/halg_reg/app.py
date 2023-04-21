@@ -12,6 +12,7 @@ import logging
 import datetime
 import base64
 import os
+import pkg_resources
 
 from email_utils.email_utils import Emailer, EmailTemplate
 
@@ -66,7 +67,9 @@ app_config = toml.load(config_file_path)
 logger.info("[Migrations] Starting")
 db_backend = get_backend(app_config['Database']['connection'])
 logger.info("[Migrations] Connected")
-migrations = read_migrations(app_config['Database']['migrations']['path'])
+migration_path = pkg_resources.resource_filename('halg_reg', 'db/migrations')
+logger.info(f"[Migrations] Reading from {migration_path}")
+migrations = read_migrations(migration_path)
 logger.info("[Migrations] Read")
 with db_backend.lock():
     db_backend.apply_migrations(db_backend.to_apply(migrations))
