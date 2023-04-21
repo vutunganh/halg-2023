@@ -4,6 +4,7 @@ from yoyo import get_backend, read_migrations
 from gpwebpay import gpwebpay
 from gpwebpay.config import configuration as gpWebpayConfig
 from time import localtime, strftime
+from typing import Optional
 import urllib.parse
 import toml
 import psycopg2
@@ -64,27 +65,27 @@ db_conn = psycopg2.connect(app_config['Database']['connection'])
 
 class ParticipantInfo:
     name: str
-    surname: str | None
+    surname: Optional[str]
     email: str
-    affiliation: str | None
+    affiliation: Optional[str]
     address: str
     city: str
     country: str
-    zip_code: str | None
-    vat_tax_no: str | None
+    zip_code: Optional[str]
+    vat_tax_no: Optional[str]
     is_student: bool
 
     def __init__(
         self,
         name: str,
-        surname: str | None,
+        surname: Optional[str],
         email: str,
-        affiliation: str | None,
+        affiliation: Optional[str],
         address: str,
         city: str,
         country: str,
-        zip_code: str | None,
-        vat_tax_no: str | None,
+        zip_code: Optional[str],
+        vat_tax_no: Optional[str],
         is_student: bool,
     ):
         # TODO: get field name using metaprogramming
@@ -113,14 +114,14 @@ class Participant(ParticipantInfo):
         self,
         id: int,
         name: str,
-        surname: str | None,
+        surname: Optional[str],
         email: str,
-        affiliation: str | None,
+        affiliation: Optional[str],
         address: str,
         city: str,
         country: str,
-        zip_code: str | None,
-        vat_tax_no: str | None,
+        zip_code: Optional[str],
+        vat_tax_no: Optional[str],
         is_student: bool,
         date_registered: datetime.datetime
     ):
@@ -243,7 +244,7 @@ def show_registration_form():
 
 # Web server utils
 
-def retrieve_form_field(request: LocalRequest, field_name: str) -> str | None:
+def retrieve_form_field(request: LocalRequest, field_name: str) -> Optional[str]:
     field = request.forms.get(field_name)
     if field is None:
         return None
@@ -257,7 +258,7 @@ def retrieve_form_field(request: LocalRequest, field_name: str) -> str | None:
 def register():
     errors = []
 
-    def retrieve_field(field_name: str) -> str | None:
+    def retrieve_field(field_name: str) -> Optional[str]:
         return retrieve_form_field(request, field_name)
 
     def retrieve_nonempty_field(field_name: str) -> str:
