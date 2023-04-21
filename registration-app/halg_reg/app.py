@@ -24,6 +24,18 @@ from email_utils.email_utils import Emailer, EmailTemplate
 #     the connection from the previous step
 # - run the web server
 
+# Set up logging
+
+root_logger = logging.getLogger("")
+log_handler = logging.StreamHandler()
+log_formatter = logging.Formatter(fmt='%(asctime)-15s.%(msecs)03d %(levelname)-5.5s [%(process)s] (%(name)s) %(message)s',
+                                  datefmt='%Y-%m-%d %H:%M:%S')
+log_handler.setFormatter(log_formatter)
+root_logger.addHandler(log_handler)
+
+logger = logging.getLogger("halg_reg")
+logger.setLevel(logging.DEBUG)
+
 # CLI arguments
 
 if 'HALG_CONFIG' in os.environ:
@@ -44,21 +56,21 @@ else:
     cli_args = cli_arg_parser.parse_args()
     config_file_path = cli_args.config
     auto_run = True
-logging.debug('Reading configuration file "{}"'.format(config_file_path))
+logger.debug('Reading configuration file "{}"'.format(config_file_path))
 
 # Load configuration
 app_config = toml.load(config_file_path)
 
 # Database functions
 ## Perform database migrations
-logging.info("[Migrations] Starting")
+logger.info("[Migrations] Starting")
 db_backend = get_backend(app_config['Database']['connection'])
-logging.info("[Migrations] Connected")
+logger.info("[Migrations] Connected")
 migrations = read_migrations(app_config['Database']['migrations']['path'])
-logging.info("[Migrations] Read")
+logger.info("[Migrations] Read")
 with db_backend.lock():
     db_backend.apply_migrations(db_backend.to_apply(migrations))
-    logging.info("[Migrations] Applied")
+    logger.info("[Migrations] Applied")
 
 ## Connect to the database
 db_conn = psycopg2.connect(app_config['Database']['connection'])
@@ -190,7 +202,7 @@ def retrieve_payment_url(order_number: int) -> str:
 
     res = cursor.fetchone()
     if res is None:
-        logging.error('Could not find an existing participant with id "{order_number}". They should exist because they managed to pay.')
+        logger.error('Could not find an existing participant with id "{order_number}". They should exist because they managed to pay.')
         abort(500, 'Could not confirm payment. Please contact the organizers.')
 
     cursor.close()
@@ -316,7 +328,7 @@ def register():
         An error has occurred  when registering the participant.
         Please, send a message to the organizers.
         ''')
-        logging.error('Could not register participant with email "{}"'.format(email))
+        logger.error('Could not register participant with email "{}"'.format(email))
         
         return dict(errors=errors)
 
@@ -341,7 +353,7 @@ def register():
             order_number=str(new_participant_id),
         )
         if not payment_gate_resp.ok:
-            logging.error(
+            logger.error(
                 f'Could not create payment for "{email}".'
                 f' Status code: "{payment_gate_resp.status_code}".'
                 f' Reason: "{payment_gate_resp.reason}".'
@@ -377,23 +389,22 @@ def payment_callback():
     url_qs = urllib.parse.parse_qs(urllib.parse.urlparse(request.url).query)
     order_no = url_qs['ORDERNUMBER'][0]
     if order_no is None:
-        logging.error('Did not receive an order number while verifying a payment.')
+        logger.error('Did not receive an order number while verifying a payment.')
         return dict(payment_successful=False)
 
     payment_verification_result = gw.get_payment_result(request.url, key_bytes)
     if payment_verification_result == {'RESULT': 'The payment communication was compromised.'}:
-        logging.error(f'Received compromised message when verifying payment for participant "{order_no}".')
+        logger.error(f'Received compromised message when verifying payment for participant "{order_no}".')
         return dict(payment_successful=False)
 
     if payment_verification_result['PRCODE'] != '0':
-        logging.error(f'Seems like payment for user "{order_no}" did not end successfully.')
-        print(payment_verification_result)
+        logger.error(f'Seems like payment for user "{order_no}" did not end successfully.')
         return dict(payment_successful=False)
 
     try:
         record_successful_payment(order_no)
     except:
-        logging.error(f'Payment for "{order_no}" seems to be successful but we could not record it.')
+        logger.error(f'Payment for "{order_no}" seems to be successful but we could not record it.')
         return dict(payment_successful=False)
 
     participant_info = get_participant(order_no)
