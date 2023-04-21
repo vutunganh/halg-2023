@@ -51,13 +51,7 @@ with open(config_file_path, "rb") as f:
 # Database functions
 ## Perform database migrations
 logging.info("[Migrations] Starting")
-db_backend = get_backend('postgresql://{}:{}@{}/{}?port={}'.format(
-    app_config['Database']['user'],
-    app_config['Database']['password'],
-    app_config['Database']['host'],
-    app_config['Database']['dbname'],
-    app_config['Database']['port'],
-))
+db_backend = get_backend(app_config['Database']['connection'])
 logging.info("[Migrations] Connected")
 migrations = read_migrations(app_config['Database']['migrations']['path'])
 logging.info("[Migrations] Read")
@@ -66,13 +60,7 @@ with db_backend.lock():
     logging.info("[Migrations] Applied")
 
 ## Connect to the database
-db_conn = psycopg2.connect(
-    host=app_config['Database']['host'],
-    port=app_config['Database']['port'],
-    user=app_config['Database']['user'],
-    password=app_config['Database']['password'],
-    dbname=app_config['Database']['dbname'],
-)
+db_conn = psycopg2.connect(app_config['Database']['connection'])
 
 class ParticipantInfo:
     name: str
