@@ -27,6 +27,7 @@ from email_utils.email_utils import Emailer, EmailTemplate
 
 if 'HALG_CONFIG' in os.environ:
     config_file_path = os.environ['HALG_CONFIG']
+    auto_run = False
 else:
     cli_arg_parser = ArgumentParser(
         prog='HALG registration',
@@ -41,6 +42,7 @@ else:
     )
     cli_args = cli_arg_parser.parse_args()
     config_file_path = cli_args.config
+    auto_run = True
 logging.debug('Reading configuration file "{}"'.format(config_file_path))
 
 # Load configuration
@@ -424,5 +426,5 @@ def payment_callback():
 # def send_static(filename):
 #     return static_file(filename, root='../')
 
-if __name__ == "__main__":
+if auto_run:
     app.run(host='127.0.0.1', port=8080)
