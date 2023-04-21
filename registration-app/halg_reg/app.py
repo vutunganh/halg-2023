@@ -14,7 +14,7 @@ import base64
 import os
 import pkg_resources
 
-from email_utils.email_utils import Emailer, EmailTemplate
+from .email_utils.email_utils import Emailer, EmailTemplate
 
 # App code overview.
 # - define cli arguments
