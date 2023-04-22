@@ -90,13 +90,13 @@
         <div class="form-message form-message--success">
           <h3>Payment successful</h3>
           We have received your payment.
-          If you need an invoice or an invitation letter, please contact us directly.
+          If you need an invoice or an invitation letter, please <a href="mailto:info@halg.mff.cuni.cz">contact us directly (info@halg.mff.cuni.cz)</a>.
         </div>
       % else:
         <div class="form-message form-message--errors">
           <h3>Payment unsuccessful</h3>
           We have not managed to verify your payment.
-          If the payment gate informed you that it succeeded, please contact us.
+          If the payment gate informed you that it succeeded, please <a href="mailto:info@halg.mff.cuni.cz">contact us (info@halg.mff.cuni.cz)</a>.
         </div>
     </div>
 
