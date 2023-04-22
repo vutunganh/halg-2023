@@ -86,20 +86,18 @@
   <div class="content">
     <div class="container">
       <h1>Registration</h1>
-      <p><strong>This is a testing instance! Please do not use for real. Your payments will not be acknowledged.</strong></p>
-      <!-- <p>Early registration (by April 29, 2019)</p> -->
-      <!-- <ul> -->
-      <!-- <li>Students: € 115 </li> -->
-      <!-- <li>Non-students: € 160</li> -->
-      <!-- </ul> -->
-      <!-- <p>Late registration (by May, 31, 2019)</p> -->
-      <!-- <ul> -->
-      <!-- <li>Students: € 165</li> -->
-      <!-- <li>Non-students: € 210</li> -->
-      <!-- </ul> -->
-      <!-- <p>Registration includes lunches all three days of the conference, coffee breaks and reception at the first poster session.</p> -->
-      <!-- <p>The registration is now open - please use this link <a href="https://science.easysignup.com/24/">https://science.easysignup.com/24/</a></p> -->
-      <!-- <p>Student rates are only valid for: PhD students, Bachelor's- and Master's degree students.</p> -->
+      <p>Early registration (by 21st May 2023)</p>
+      <ul>
+        <li>Students: 2600 CZK</li>
+        <li>Non-students: 3500 CZK</li>
+      </ul>
+      <p>Late registration</p>
+      <ul>
+        <li>Students: 4000 CZK</li>
+        <li>Non-students: 5000 CZK</li>
+      </ul>
+      <p>On-site registration: 6000 CZK</p>
+
 
       <h2 id="registration-form">Registration form</h2>
       <form id="registration-form" name="registrationForm" action="#registration-form" method="post">
