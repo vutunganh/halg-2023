@@ -13,6 +13,27 @@
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.css" integrity="sha384-mXD7x5S50Ko38scHSnD4egvoExgMPbrseZorkbE49evAfv9nNcbrXJ8LLNsDgh9d" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/katex.min.js" integrity="sha384-j/ZricySXBnNMJy9meJCtyXTKMhIJ42heyr7oAdxTDBy/CYA9hzpMo+YTNV5C+1X" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.6/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+  </script>
+
   <link href="styles.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -87,33 +108,407 @@
     <div class="container">
       <h1>Programme</h1>
 
-      <section>
-        <h2>Preliminary information</h2>
-        <ul>
-          <li>The <em>conference starts</em> Friday, 2nd June in the morning.</li>
-          <li>The <em>reception</em> is on Friday, 2nd June as well.</li>
-          <li>The conference <em>ends</em> on Sunday, 4th June in the afternoon.</li>
-        </ul>
-      </section>
-      <!-- TODO -->
-      <!-- <p>All talks take place in the Auditorium 01</p> -->
+      <h3>Friday, 2nd June</h3>
+      <table class="table" style ="border: 2px solid">
+        <tr class="tr-background">
+          <td class="fixed-width">08:30 - 09:00</td>
+          <td><strong>Welcome and Coffee/Tea</strong></td>
+        </tr>
+      </table>
 
-      <!-- <div class = "col-md-12"> -->
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">08:30 - 09:00</td>
+          <td><strong>Marcin Pilipczuk</strong> &mdash; Flow Augmentation</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">10:00 - 10:30</td>
+          <td><strong>William Kuszmaul</strong> &mdash; A Hash Table Without Hash Functions, and How to Get the Most Out of Your Random Bits</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">10:30 - 11:00</td>
+          <td><strong>Coffee/Tea break</strong></td>
+        </tr>
+      </table>
 
-    <!-- <h3>Friday, June 14</h3> <br/> -->
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">11:00 - 11:30</td>
+          <td><strong>Mohsen Ghaffari</strong> &mdash; Local Computation of Maximal Independent Set</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">11:30 - 12:00</td>
+          <td><strong>Rasmus Kyng</strong> &mdash; Maximum Flow and Minimum-Cost Flow in Almost-Linear Time</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">12:00 - 12:30</td>
+          <td><strong>Nicole Wein</strong> &mdash; Online List Labeling: Breaking the $\log^2 n$ Barrier</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">12:30 - 14:00</td>
+          <td><strong>Lunch (provided)</strong></td>
+        </tr>
+      </table>
 
-    <!-- <table class = "table" style ="border: 2px solid"> -->
-      <!--                           <tr class="tr-background"> -->
-      <!--           <td class="fixed-width"> 8:15 - 8:45 </td> -->
-      <!--               <td> <strong> Registration and Coffee </strong></td> -->
-      <!--           </tr> -->
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">14:00 - 15:30</td>
+          <td>Contributed talks</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">15:30 - 16:30</td>
+          <td><strong>Coffee Break and Poster Session</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">16:30 - 17:30</td>
+          <td><strong>Tillmann Miltzow</strong> &mdash; Existential Theory of the Reals</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">17:30 - 18:00</td>
+          <td><strong>Alexandros Hollender</strong> &mdash; Pure-Circuit: Strong Inapproximability for PPAD</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">18:00 - 18:30</td>
+          <td><strong>Andreas Wiese</strong> &mdash; A PTAS for Unsplittable Flow on a Path</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">18:30 - 21:00</td>
+          <td><strong>Reception</strong></td>
+        </tr>
+      </table>
+
+      <h3>Saturday, 3rd June</h3>
+      <table class="table" style ="border: 2px solid">
+        <tr class="tr-background">
+          <td class="fixed-width">08:30 - 09:00</td>
+          <td><strong>Welcome and Coffee/Tea</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">09:00 - 10:00</td>
+          <td><strong>Sepehr Assadi</strong> &mdash; Lower Bound Techniques for Multi-Pass Streaming Algorithms</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">10:00 - 10:30</td>
+          <td><strong>Ohad Feldheim</strong> &mdash; The Power of Two Choices in Graphical Allocation</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">10:30 - 11:00</td>
+          <td><strong>Coffee/Tea Break</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">11:00 - 11:30</td>
+          <td><strong>Christian Coester</strong> &mdash; Shortest Paths without a Map, but with an Entropic Regularizer</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">11:30 - 12:00</td>
+          <td><strong>Kent Quanrud</strong> &mdash; Densest Subgraph: Supermodularity, Iterative Peeling, and Flow</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">12:00 - 12:30</td>
+          <td><strong>Ariel Kulik</strong> &mdash; Faster Exponential-Time Approximation Algorithms Using Approximate Monotone Local Search</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">12:30 - 14:00</td>
+          <td><strong>Lunch (provided)</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">14:00 - 15:30</td>
+          <td>Contributed talks</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">15:30 - 16:30</td>
+          <td><strong>Coffee Break and Poster Session</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">16:30 - 17:30</td>
+          <td><strong>Klaus Jansen</strong> &mdash; Approximation Schemes for Scheduling Problems</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">17:30 - 18:00</td>
+          <td><strong>Xavier Allamigeon</strong> &mdash; No Self-concordant Barrier Interior Point Method is Strongly Polynomial</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">18:00 - 18:30</td>
+          <td><strong>Balasubramanian Sivan</strong> &mdash; Approximately Efficient Bilateral Trade</td>
+        </tr>
+      </table>
+
+      <h4>Chair: Yossi Azar</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">18:30 - 19:30</td>
+          <td><strong>Business Meeting</strong></td>
+        </tr>
+      </table>
+
+      <h3>Sunday, 4th June</h3>
+      <table class="table" style ="border: 2px solid">
+        <tr class="tr-background">
+          <td class="fixed-width">08:30 - 09:00</td>
+          <td><strong>Welcome and Coffee/Tea</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">09:00 - 10:00</td>
+          <td><strong>Merav Parter</strong> &mdash; Recent Advances in Distributed Algorithms</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">10:00 - 10:30</td>
+          <td><strong>Jie Gao</strong> &mdash; On Cyclic Solutions to the Min-Max Latency Multi-Robot Patrolling Problem</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">10:30 - 11:00</td>
+          <td><strong>Coffee/Tea Break</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">11:00 - 11:30</td>
+          <td><strong>Michael Anastos</strong> &mdash; A Fast Algorithm on Average for Solving the Hamilton Cycle Problem</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">11:30 - 12:00</td>
+          <td><strong>Linda Kleist</strong> &mdash; A Solution to Ringel’s Circle Problem</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">12:00 - 12:30</td>
+          <td><strong>Ola Svensson</strong> &mdash; Flow Time Scheduling and Prefix Beck-Fiala</td>
+        </tr>
+        <tr class="tr-background">
+          <td class="fixed-width">12:30 - 14:00</td>
+          <td><strong>Lunch (provided)</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">14:00 - 15:30</td>
+          <td>Contributed talks</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">15:30 - 16:00</td>
+          <td><strong>Coffee Break</strong></td>
+        </tr>
+      </table>
+
+      <h4>Session chair: TBD</h4>
+      <table class="table" style ="border: 2px solid">
+        <tr>
+          <td class="fixed-width">16:30 - 17:00</td>
+          <td><strong>Uri Stemmer</strong> &mdash; Differential Privacy and Algorithms against an Adaptive Adversary</td>
+        </tr>
+        <tr>
+          <td class="fixed-width">17:00 - 18:00</td>
+          <td><strong>Poster Session</strong></td>
+        </tr>
+      </table>
+
+      <h2>Contributed Talks</h2>
+
+      <h3>Friday, 2nd June</h3>
+      <table class = "table" style ="border: 2px solid">
+        <tr>
+          <td>Michael Elkin, <strong>Yuval Gitlitz</strong> and Ofer Neiman &mdash; Improved Weighted Additive Spanners</td>
+        </tr>
+        <tr>
+          <td><strong>Nathan Wallheimer</strong> and Amir Abboud &mdash; Worst-case to Expander-case Reductions</td>
+        </tr>
+        <tr>
+          <td><strong>Sorrachai Yingchareonthawornchai</strong> and Thatchaphol Saranurak &mdash; Worst-case to Expander-case Reductions</td>
+        </tr>
+        <tr>
+          <td>Debarati Das, Jacob Gilbert, Mohammadtaghi Hajiaghayi, <strong>Tomasz Kociumaka</strong> and Barna Saha &mdash; Weighted Edit Distance Computation: Strings, Trees, and Dyck</td>
+        </tr>
+        <tr>
+          <td><strong>Kyungjin Cho</strong>, Eunjin Oh and Seunghyeok Oh &mdash; Parameterized Algorithm for the Planar Disjoint Paths Problem: Exponential in $k^2$, and Linear in $n$</td>
+        </tr>
+        <tr>
+          <td>Ashish Chiplunkar, Monika Henzinger, Sagar Sudhir Kale and <strong>Maximilian Vötsch</strong> &mdash; Online Min-Max Paging</td>
+        </tr>
+        <tr>
+          <td><strong>Piotr Mitosek</strong> &mdash; Constructing $NP^{\#P}$ -complete Problems and $\#P$-hardness of Circuit Extraction in Phase-free ZH</td>
+        </tr>
+        <tr>
+          <td>Marcel Dall’Agnol, Graham Cormode, Chris Hickey and Tom Gur &mdash; Streaming Zero-Knowledge Proofs</td>
+        </tr>
+        <tr>
+          <td>Sujoy Bhore, Robert Ganian, <strong>Liana Khazaliya</strong>, Fabrizio Montecchiani and Martin Nöllenburg &mdash; Extending Orthogonal Planar Graph Drawings is Fixed-Parameter Tractable</td>
+        </tr>
+        <tr>
+          <td>Sayan Bhattacharya, <strong>Peter Kiss</strong> and Thatchaphol Saranurak &mdash; Dynamic $(1 + \varepsilon)$-Approximate Matching Size in Truly Sublinear Update Time</td>
+        </tr>
+        <tr>
+          <td>Sebastian Berndt, Hauke Brinkop, Klaus Jansen, Matthias Mnich and <strong>Tobias Stamm</strong> &mdash; New Results for Intractable Scheduling Problems</td>
+        </tr>
+        <tr>
+          <td>Oded Lachish, Felix Reidl and <strong>Chhaya Trehan</strong> &mdash; When You Come at the King You Best not Miss</td>
+        </tr>
+        <tr>
+          <td>François Dross, Krzysztof Fleszar, Karol Węgrzycki and Anna Zych-Pawlewicz &mdash; Gap-ETH-Tight Approximation Schemes for Red-Green-Blue Separation and Bicolored Noncrossing Euclidean Travelling Salesman Tours</td>
+        </tr>
+        <tr>
+          <td>Monika Henzinger, <strong>Stefan Neumann</strong>, Harald Räcke and Stefan Schmid &mdash; Dynamic Maintenance of Monotone Dynamic Programs and Applications</td>
+        </tr>
+        <tr>
+          <td>Sayan Bhattacharya, <strong>Martin Costa</strong>, Silvio Lattanzi and Nikos Parotsidis &mdash; Fully Dynamic k-Clustering in $\tilde{O}(k)$ Update Time</td>
+        </tr>
+        <tr>
+          <td><strong>Meike Neuwohner</strong> &mdash; Passing the Limits of Pure Local Search for Weighted k-Set Packing</td>
+        </tr>
+        <tr>
+          <td>Fateme Abbasi, Marek Adamczyk, Miguel Bosch-Calvo, <strong>Jarosław Byrka</strong>, Fabrizio Grandoni, Krzysztof Sornat and Antoine Tinguely &mdash; An $O(\log\log n)$-Approximation for Submodular Facility Location</td>
+        </tr>
+        <tr>
+          <td>Amir Abboud, Karl Bringmann and <strong>Nick Fischer</strong> &mdash; Stronger 3-SUM Lower Bounds for Approximate Distance Oracles via Additive Combinatorics</td>
+        </tr>
+      </table>
+
+      <h3>Saturday, 3rd June</h3>
+      <table class = "table" style ="border: 2px solid">
+        <tr>
+          <td><strong>Jannis Blauth</strong> and Martin Nägele &mdash; An Improved Approximation Guarantee for Prize-Collecting TSP</td>
+        </tr>
+        <tr>
+          <td>Panagiotis Charalampopoulos, Tomasz Kociumaka and <strong>Philip Wellnitz</strong> &mdash; Faster Pattern Matching under Edit Distance</td>
+        </tr>
+        <tr>
+          <td>Sourav Chakraborty, Eldar Fischer, Arijit Ghosh, Gopinath Mishra and Sayantan Sen &mdash; Exploring the Gap between Tolerant and Non-tolerant Distribution Testing</td>
+        </tr>
+        <tr>
+          <td>Yiannis Giannakopoulos, <strong>Alexander Grosz</strong> and Themistoklis Melissourgos &mdash; On the Smoothed Complexity of Combinatorial Local Search</td>
+        </tr>
+        <tr>
+          <td>Kunal Dutta, Arijit Ghosh and Shay Moran &mdash; Uniform Brackets, Containers, and Combinatorial Macbeath Regions</td>
+        </tr>
+        <tr>
+          <td>Parinya Chalermsook, Matthias Kaul, Matthias Mnich, Joachim Spoerhase, Sumedha Uniyal and <strong>Daniel Vaz</strong> &mdash; Approximating Sparsest Cut in Low-Treewidth Graphs via Combinatorial Diameter</td>
+        </tr>
+        <tr>
+          <td><strong>Jakub Svoboda</strong> &mdash; Faster Algorithm for Turn-based Stochastic Games with Bounded Treewidth</td>
+        </tr>
+        <tr>
+          <td>Parinya Chalermsook, Manoj Gupta, Wanchote Jiamjitrak, <strong>Nidia Obscura Acosta</strong>, Akash Pareek and Sorrachai Yingchareonthwornchai &mdash; Improved Pattern-Avoidance Bounds for Greedy BSTs via Matrix Decomposition</td>
+        </tr>
+        <tr>
+          <td>Sam Coy, Artur Czumaj and Gopinath Mishra &mdash; On Parallel k-Center Clustering</td>
+        </tr>
+        <tr>
+          <td>Nicolas Bousquet, <strong>Laurent Feuilloley</strong> and Théo Pierron &mdash; What Can Be Certified Compactly? Compact local certification of MSO properties in tree-like graphs</td>
+        </tr>
+        <tr>
+          <td>Arijit Ghosh, Gopinath Mishra, Rahul Raychaudhury and Sayantan Sen &mdash; Tolerant Bipartiteness Testing in Dense Graphs</td>
+        </tr>
+        <tr>
+          <td>Dibyayan Chakraborty, Antoine Dailly, Sandip Das, Florent Foucaud, <strong>Harmender Gahlawat</strong> and Subir Kumar Ghosh &mdash; Complexity and Algorithms for Isometric Path Cover on Chordal Graphs and Beyond</td>
+        </tr>
+        <tr>
+          <td>Meike Hatzel, Lars Jaffke, Paloma T. Lima, Tomas Masarik, Marcin Pilipczuk, Roohani Sharma and Manuel Sorge &mdash; Fixed-parameter Tractability of Directed Multicut with Three Terminal pairs Parameterized by the Size of the Cutset: Twin-width Meets Flow-augmentation</td>
+        </tr>
+        <tr>
+          <td>Harald Räcke, Stefan Schmid and <strong>Ruslan Zabrodin</strong> &mdash; Polylog-Competitive Algorithms for Dynamic Balanced Graph Partitioning for Ring Demands</td>
+        </tr>
+        <tr>
+          <td><strong>Niklas Schlomberg</strong>, Hanjo Thiele and Jens Vygen &mdash; Packing Cycles in Planar and Bounded-genus Graphs</td>
+        </tr>
+        <tr>
+          <td><strong>Sven Jäger</strong>, Guillaume Sagnol, Daniel Schmidt Genannt Waldschmidt and Philipp Warode &mdash; Competitive Kill-and-Restart and Preemptive Strategies for Non-clairvoyant Scheduling</td>
+        </tr>
+        <tr>
+          <td><strong>Sanjana Dey</strong>, Florent Foucaud, Subhas Nandy and Arun Sen &mdash; Complexity and Approximation for Discriminating and Identifying Code Problems in Geometric Setups</td>
+        </tr>
+      </table>
+
+      <h3>Sunday, 4th June</h3>
+      <table class = "table" style ="border: 2px solid">
+        <tr>
+          <td>Amir Abboud, Seri Khoury, <strong>Oree Leibowitz</strong> and Ron Safier &mdash; Listing 4-Cycles</td>
+        </tr>
+        <tr>
+          <td>Sandip Das and <strong>Harmender Gahlawat</strong> &mdash; On the Cop Number of String Graphs</td>
+        </tr>
+        <tr>
+          <td><strong>Itai Boneh</strong>, Shay Golan, Shay Mozes and Oren Weimann &mdash; Near-Optimal Dynamic Time Warping on Run-Length Encoded Strings</td>
+        </tr>
+        <tr>
+          <td><strong>Shahar Lewkowicz</strong>, Yossi Azar and Danny Vainstein &mdash; List Update with Delays or Time Windows</td>
+        </tr>
+        <tr>
+          <td>Jacob Focke, Dániel Marx, Fionn Mc Inerney, Daniel Neuen, Govind Sankar, <strong>Philipp Schepper</strong> and Philip Wellnitz &mdash; Tight Complexity Bounds for Counting Generalized Dominating Sets in Bounded-Treewidth Graphs</td>
+        </tr>
+        <tr>
+          <td><strong>Diptarka Chakraborty</strong>, Debarati Das and Robert Krauthgamer &mdash; Clustering Permutations: New Techniques with Streaming Applications</td>
+        </tr>
+        <tr>
+          <td>Loukas Georgiadis, <strong>Evangelos Kipouridis</strong>, Charis Papadopoulos and Nikos Parotsidis &mdash; Faster Computation of 3-Edge-Connected Components in Digraphs</td>
+        </tr>
+        <tr>
+          <td>Hugo Aaronson, Tom Gur and Ninad Rajgopal &mdash; Distribution-Free Proofs of Proximity</td>
+        </tr>
+        <tr>
+          <td><strong>Aniket Basu Roy</strong> &mdash; Covering Simple Orthogonal Polygons with Rectangles</td>
+        </tr>
+        <tr>
+          <td>Davide Bilò, Shiri Chechik, Keerti Choudhary, <strong>Sarel Cohen</strong>, Tobias Friedrich, Simon Krogmann and Martin Schirneck &mdash; Approximate Distance Sensitivity Oracles in Subquadratic Space</td>
+        </tr>
+        <tr>
+          <td>Andreas Emil Feldmann and <strong>Tung Anh Vu</strong> &mdash; Generalized $k$-Center: Distinguishing Doubling and Highway Dimension</td>
+        </tr>
+        <tr>
+          <td>Tobias Friedrich, Davis Issac, Nikhil Kumar, <strong>Nadym Mallek</strong> and Ziena Zeif &mdash; Approximate Max-Flow Min-Multicut Theorem for Graphs of Bounded Treewidth</td>
+        </tr>
+        <tr>
+          <td>Vladimir Braverman, Robert Krauthgamer, Aditya Krishnan and <strong>Shay Sapir</strong> &mdash; Lower Bounds for Pseudo-Deterministic Counting in a Stream</td>
+        </tr>
+        <tr>
+          <td>Binay Bhattacharya, Sandip Das and Subhadeep Dev &mdash; A Subquadratic Time Algorithm for the Weighted $k$-Center Problem on Cactus Graphs</td>
+        </tr>
+        <tr>
+          <td><strong>Antoine El-Hayek</strong>, Monika Henzinger and Stefan Schmid &mdash; Asymptotically Tight Bounds on the Time Complexity of Broadcast and its Variants in Dynamic Networks</td>
+        </tr>
+        <tr>
+          <td>Alexandra Lassota, Aleksander Łukasiewicz and Adam Polak &mdash; Tight Vector Bin Packing with Few Small Items via Fast Exact Matching in Multigraphs</td>
+        </tr>
+        <tr>
+          <td>Zachary Friggstad and <strong>Ramin Mousavi</strong> &mdash; An $O(\log k)$-Approximation for Directed Steiner Tree in Planar Graphs</td>
+        </tr>
+      </table>
+
       <!--                           <tr class="tr-background"> -->
       <!--           <td class="fixed-width"> 8:45 - 8:55 </td> -->
       <!--               <td> <strong> Welcome, Anti-Harassment Policy, and Practical Info </strong></td> -->
       <!--           </tr> -->
       <!--                           <tr> -->			
       <!--           <td class="fixed-width"> 9:00 - 9:55 </td> -->
-      <!--                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       <td> -->
+      <!--<td> -->
       <!--                                                               <details> -->
       <!--                   <summary><strong> Laszlo Vegh </strong> &mdash; Survey on approximation algorithms for the asymmetric traveling salesman problem --> 
       <!--                   <span><b><span class="abstract-button" style="float: right"></span></b></span></summary> -->
