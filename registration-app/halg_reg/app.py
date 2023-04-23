@@ -348,6 +348,11 @@ def register():
     payment_amount = app_config['Payment']['adult_price']
     if is_student:
         payment_amount = app_config['Payment']['student_price']
+
+    special_testing_emails = ['andemil@kam.mff.cuni.cz', 'tung@kam.mff.cuni.cz']
+    if email in special_testing_emails:
+        payment_amount = 1
+
     payment_amount = int(payment_amount) * int(app_config['Payment']['haler_multiplier'])
 
     try:
