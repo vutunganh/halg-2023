@@ -142,6 +142,17 @@
   border-color: red;
 }
 
+.participants-table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.participants-table td, th {
+  padding: 1rem;
+  border: 2px black solid;
+}
+
 /* Fonts */
 /* raleway-regular - cyrillic_cyrillic-ext_latin_latin-ext_vietnamese */
 @font-face {

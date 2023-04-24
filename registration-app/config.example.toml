@@ -1,3 +1,5 @@
+admin_password = "halg2023_password"
+
 [Database]
 connection = "postgresql://user:passwd@host/dbname?port=portnum"
 
