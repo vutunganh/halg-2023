@@ -87,10 +87,6 @@
     <div class="container">
       <h1>Registration</h1>
 
-      <div class="form-message form-message--errors">
-        <p>We are currently having issues with Mastercard payments. If you intend to pay with Mastercard, please delay your registration. VISA cards should work without any problems. We will resolve this as soon as possible. Thank you for your understanding.</p>
-      </div>
-
       <p>Early registration (by 21st May 2023)</p>
       <ul>
         <li>Students: 2600 CZK</li>
@@ -194,7 +190,7 @@
       </footer>
     </div>
   </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
