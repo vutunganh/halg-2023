@@ -176,7 +176,7 @@
         </div>
 
         <div class="input-group">
-          <div>Should the participant be considered a student?</div>
+          <div>I am registering as a student.</div>
           <div>
             <input type="checkbox" id="is-student" name="isStudent" />
             <label for="is-student">Yes</label>
