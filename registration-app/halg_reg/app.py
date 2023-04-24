@@ -1,10 +1,10 @@
-from bottle import Bottle, LocalRequest, request, view, abort, static_file, TEMPLATE_PATH
+from bottle import Bottle, LocalRequest, request, view, abort, TEMPLATE_PATH
 from argparse import ArgumentParser
 from yoyo import get_backend, read_migrations
 from gpwebpay import gpwebpay
 from gpwebpay.config import configuration as gpWebpayConfig
 from time import localtime, strftime
-from typing import Optional
+from typing import Optional, List
 import urllib.parse
 import toml
 import psycopg2
@@ -124,6 +124,8 @@ class ParticipantInfo:
 class Participant(ParticipantInfo):
     id: int
     date_registered: datetime.datetime
+    payment_url: str
+    has_paid: bool
 
     def __init__(
         self,
@@ -138,12 +140,16 @@ class Participant(ParticipantInfo):
         zip_code: Optional[str],
         vat_tax_no: Optional[str],
         is_student: bool,
-        date_registered: datetime.datetime
+        date_registered: datetime.datetime,
+        payment_url: str,
+        has_paid: bool,
     ):
 
         super().__init__(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student)
         self.id = id
         self.date_registered = date_registered
+        self.payment_url = payment_url
+        self.has_paid = has_paid
 
 ## Database utils
 def register_participant(participant: ParticipantInfo):
@@ -231,6 +237,17 @@ def get_participant(id: int) -> ParticipantInfo:
     """, (id, ))
 
     return ParticipantInfo(*cursor.fetchone())
+
+def get_all_participants() -> List[Participant]:
+    cursor = db_conn.cursor()
+
+    cursor.execute("""
+    SELECT *
+    FROM participant
+    """)
+
+    results = cursor.fetchall()
+    return [Participant(*r) for r in results]
 
 
 # Initialize mailer class
@@ -439,11 +456,29 @@ def payment_callback():
 
     return dict(payment_successful=True)
 
-# TODO: Remove this.
-#       This is only used to substitute a webserver during development.
-# @app.route('/<filename:path>')
-# def send_static(filename):
-#     return static_file(filename, root='../')
+@app.route('/participants')
+@view('participants_view')
+def show_participants_get():
+    return dict()
+
+@app.post('/participants')
+@view('participants')
+def show_participants_post():
+    pw = retrieve_form_field(request, 'password')
+    # very secure, I know. This is purely so that the info is not publicly
+    # accessible.
+    if pw != app_config['admin_password']:
+        return abort(403, 'Incorrect password')
+
+    participants = []
+    try:
+        participants = get_all_participants()
+    except:
+        logger.error('Could not fetch all participants.')
+        return abort(500, 'Could not fetch all participants.')
+
+    return dict(participants=participants)
+
 
 if auto_run:
     app.run(host='127.0.0.1', port=8080)
