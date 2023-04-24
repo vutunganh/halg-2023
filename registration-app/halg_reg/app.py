@@ -366,7 +366,7 @@ def register():
     if is_student:
         payment_amount = app_config['Payment']['student_price']
 
-    special_testing_emails = ['andemil@kam.mff.cuni.cz', 'tung@kam.mff.cuni.cz']
+    special_testing_emails = []
     if email in special_testing_emails:
         payment_amount = 1
 
