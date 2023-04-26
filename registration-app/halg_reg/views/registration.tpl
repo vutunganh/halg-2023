@@ -179,6 +179,11 @@
           </div>
         </div>
 
+        <div class="input-group">
+          <label for="remarks">Remarks for the organizers:</label>
+          <textarea id="remarks" name="remarks"></textarea>
+        </div>
+
         <input type="submit" value="Register" />
       </form>
     </div>

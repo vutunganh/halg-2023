@@ -103,6 +103,7 @@
             <th>Is student?</th>
             <th>Date registered</th>
             <th>Has paid?</th>
+            <th>Remarks</th>
           </tr>
         </thead>
         <tbody>
@@ -121,6 +122,7 @@
               <td>{{p.is_student}}</td>
               <td>{{p.date_registered}}</td>
               <td>{{p.has_paid}}</td>
+              <td>{{p.remarks}}</td>
             </tr>
           % end
         </tbody>

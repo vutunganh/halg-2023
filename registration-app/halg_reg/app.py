@@ -14,7 +14,7 @@ import base64
 import os
 import pkg_resources
 
-from .email_utils.email_utils import Emailer, EmailTemplate
+from email_utils.email_utils import Emailer, EmailTemplate
 
 # App code overview.
 # - define cli arguments
@@ -89,6 +89,7 @@ class ParticipantInfo:
     zip_code: Optional[str]
     vat_tax_no: Optional[str]
     is_student: bool
+    remarks: Optional[str]
 
     def __init__(
         self,
@@ -102,6 +103,7 @@ class ParticipantInfo:
         zip_code: Optional[str],
         vat_tax_no: Optional[str],
         is_student: bool,
+        remarks: Optional[str],
     ):
         # TODO: get field name using metaprogramming
         def verify_nonempty(s: str, field_name: str) -> str:
@@ -120,6 +122,7 @@ class ParticipantInfo:
         self.zip_code = zip_code
         self.vat_tax_no = vat_tax_no
         self.is_student = is_student
+        self.remarks = remarks
 
 class Participant(ParticipantInfo):
     id: int
@@ -143,9 +146,10 @@ class Participant(ParticipantInfo):
         date_registered: datetime.datetime,
         payment_url: str,
         has_paid: bool,
+        remarks: Optional[str],
     ):
 
-        super().__init__(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student)
+        super().__init__(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks)
         self.id = id
         self.date_registered = date_registered
         self.payment_url = payment_url
@@ -157,12 +161,12 @@ def register_participant(participant: ParticipantInfo):
 
     cursor.execute("""
     INSERT INTO
-    participant (name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student)
+    participant (name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks)
     VALUES
-    (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     RETURNING id
     """,
-    (participant.name, participant.surname, participant.email, participant.affiliation, participant.address, participant.city, participant.country, participant.zip_code, participant.vat_tax_no, participant.is_student
+    (participant.name, participant.surname, participant.email, participant.affiliation, participant.address, participant.city, participant.country, participant.zip_code, participant.vat_tax_no, participant.is_student, participant.remarks
     ))
     id = cursor.fetchone()[0]
     db_conn.commit()
@@ -231,7 +235,7 @@ def get_participant(id: int) -> ParticipantInfo:
     cursor = db_conn.cursor()
 
     cursor.execute("""
-    SELECT name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student
+    SELECT name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks
     FROM participant
     WHERE id = %s
     """, (id, ))
@@ -334,6 +338,8 @@ def register():
     # we have to convert them to a string here
     is_student = True if is_student_field == "on" else False
 
+    remarks = retrieve_field('remarks')
+
     if len(errors) > 0:
         return dict(errors=errors)
 
@@ -343,7 +349,21 @@ def register():
 
     # Write participant to the db
     try:
-        new_participant_id = register_participant(ParticipantInfo(name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student))
+        new_participant_id = register_participant(
+            ParticipantInfo(
+                name,
+                surname,
+                email,
+                affiliation,
+                address,
+                city,
+                country,
+                zip_code,
+                vat_tax_no,
+                is_student,
+                remarks,
+            )
+        )
     except:
         errors.append('''
         An error has occurred  when registering the participant.
