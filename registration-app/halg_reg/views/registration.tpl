@@ -127,7 +127,7 @@
           % end
         % end
         <div class="input-group">
-          <label for="name">Name (required):</label>
+          <label for="name">First name (required):</label>
           <input type="text" id="name" name="name" required />
         </div>
 
