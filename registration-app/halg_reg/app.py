@@ -265,7 +265,7 @@ def show_registration_form():
 # Web server utils
 
 def retrieve_form_field(request: LocalRequest, field_name: str) -> Optional[str]:
-    field = request.forms.get(field_name)
+    field = request.forms.getunicode(field_name)
     if field is None:
         return None
 
