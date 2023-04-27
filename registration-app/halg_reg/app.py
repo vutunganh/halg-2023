@@ -173,23 +173,6 @@ def register_participant(participant: ParticipantInfo):
     cursor.close()
     return id
 
-
-def check_existing_user(email: str) -> bool:
-    cursor = db_conn.cursor()
-
-    cursor.execute("""
-    SELECT EXISTS(
-        SELECT 1
-        FROM participant
-        WHERE email = %s
-    );
-    """, (email, ))
-
-    res = cursor.fetchone()[0]
-    db_conn.commit()
-    cursor.close()
-    return res
-
 def set_participant_payment_url(participant_id: int, payment_url: str):
     cursor = db_conn.cursor()
     cursor.execute("""
@@ -341,10 +324,6 @@ def register():
     remarks = retrieve_field('remarks')
 
     if len(errors) > 0:
-        return dict(errors=errors)
-
-    if check_existing_user(email):
-        errors.append('A participant with email address "{}" is already registered.'.format(email))
         return dict(errors=errors)
 
     # Write participant to the db
