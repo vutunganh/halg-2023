@@ -184,6 +184,14 @@
           <textarea id="remarks" name="remarks"></textarea>
         </div>
 
+        <p>
+        <strong>Note:</strong>
+        after registering, you will be redirected to the payment gate.
+        The link to the payment gate expires after a few hours.
+        If the link expires before you manage to pay the registration fee, please send us an email (<a href="mailto:info@halg.mff.cuni.cz">info@halg.mff.cuni.cz</a>).
+        We will clear your expired registration and let you register again.
+        </p>
+
         <input type="submit" value="Register" />
       </form>
     </div>
