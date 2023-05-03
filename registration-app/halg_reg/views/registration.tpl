@@ -193,6 +193,15 @@
 
         <input type="submit" value="Register" />
       </form>
+
+      <p>
+      <strong>Data collection:</strong>
+      <ul>
+        <li>Name and affiliation will be used on name tags.</li>
+        <li>Email address will be used to commnunicate with participants about issues directly concerning the conference.</li>
+        <li>Address will be printed on the receipt.</li>
+      </ul>
+      </p>
     </div>
 
     <div class="container">
