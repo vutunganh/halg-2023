@@ -87,7 +87,7 @@
     <div class="container">
       <h1>Registration</h1>
 
-      <p>Early registration (by 21st May 2023)</p>
+      <p>Early registration (by <time datetime="2023-05-21">21st May 2023</time>)</p>
       <ul>
         <li>Students: 2600 CZK</li>
         <li>Non-students: 3500 CZK</li>
