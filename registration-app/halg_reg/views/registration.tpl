@@ -126,7 +126,7 @@
         </div>
 
         <div class="input-group">
-          <label for="name">Surname:</label>
+          <label for="surname">Surname:</label>
           <input type="text" id="surname" name="surname" />
         </div>
 
