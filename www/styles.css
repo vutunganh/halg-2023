@@ -70,6 +70,9 @@
 
 .navbar-nav {
   display: flex;
+  /* The following two are copied from the 2019 version of the website. */
+	float: none;
+	margin: auto;
 }
 
 #sponsors {
@@ -116,4 +119,196 @@
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
+}
+
+/* Copied from various places of the 2019 website. */
+.wrapped-image {
+    float: right;
+    width: 40%;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+@media only screen and (max-width: 500px) {
+    .wrapped image {
+        display: block;
+        width: 100%;
+        float: none;
+        margin: 0 auto 10px !important;
+    }
+}
+
+.navbar {
+	margin-top: 0;
+	border-radius: 0;
+	border: 0;
+}
+
+.navbar-inverse {
+	background: #fcfcfc;
+	border-top: solid;
+	border-bottom: solid;
+	border-top-color: #e0dfdb;
+	border-bottom-color: #e0dfdb;
+	border-width: 1px;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-inverse .navbar-nav li a {
+	color: #5371a3;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-style: lighter;
+	border-bottom: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: transparent;
+	transition: border-bottom-color 0.3s;
+}
+
+@media (max-width: 1200px) {
+  .navbar-inverse .navbar-nav li a {
+    font-size:14px;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-inverse .navbar-nav li a {
+    font-size: 10px;
+  }
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+	color: #5371a3;
+	border-bottom: solid;
+	border-bottom-width: 2px;
+}
+
+.navbar-inverse .navbar-nav .active_nav a {
+	color:# 5371a3;
+	border-bottom: solid;
+	border-bottom-width: 2px;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+	background-color: #5371a3;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+	background-color: transparent;
+}
+
+.navbar-collapse {
+	text-align: center; 
+}
+
+.map {
+  width: 70%;
+  margin: auto;
+}
+
+.wide-map {
+  width: 100%;
+}
+
+.fixed-width {
+	width: 20%;
+}
+
+.tr-background{
+	background: #ededed!important;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background: white;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: lighter;
+}
+
+p, .table, .table-bordered {
+	font-size: 16px;
+	line-height: 200%;
+	color: grey;
+}
+
+@media (max-width: 767px) {
+  p, .table, .table-bordered {
+    font-size: 13px;
+    color: grey;
+  }
+}
+
+ul, ol {
+	font-size: 16px;
+	line-height: 200%;
+	color: grey;
+}
+
+@media (max-width: 767px) {
+  ul, ol {
+    font-size: 13px;
+    line-height: 200%;
+    color: grey;
+    padding-left: 20px;
+  }
+}
+
+.footer {
+	border-top: 5px solid #eee;
+	padding: 3em 0;
+	margin-top: 3em;
+	text-align: center;
+}
+
+.glyphicon-large {
+	font-size: 25px;
+}
+
+details summary { cursor: pointer; }
+
+summary::-webkit-details-marker {display: none; }
+/*details summary::after { content:"    (expand)"; }
+details[open] summary::after { content:"    (hide)"; }*/
+/*details summary::after { content:"[+]"; }
+details[open] summary::after { content:"[-]" }*/
+
+details .abstract-button::after { content:"[abstract]" }
+details[open] .abstract-button::after { content:"[-]" }
+details .programme-button::after { content:"[+]" }
+details[open] .programme-button::after { content:"[-]" }
+
+@media print {
+  body {
+    font-size: 8pt;
+    font-family: serif;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+
+  details .abstract-button::after { content: none; }
+  details[open] .abstract-button::after { content: none; }
+  details .programme-button::after { content: none; }
+  details[open] .programme-button::after { content: none; }
+
+  p, .table, .table-bordered {
+    font-size: 12px;
+    line-height: 100%;
+  }
+
+  h3 {
+    font-size: 16pt;
+  }
 }
