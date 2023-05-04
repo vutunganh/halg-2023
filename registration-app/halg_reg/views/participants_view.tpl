@@ -4,15 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HALG 2023</title>
+  <title>HALG 2023: Participants</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <link href="/user/plugins/markdown-notices/assets/notices.css" type="text/css" rel="stylesheet" />
-  <link href="/user/plugins/form/assets/form-styles.css" type="text/css" rel="stylesheet" />
-  <link href="/user/plugins/login/css/login.css" type="text/css" rel="stylesheet" />
-  <link href="/user/themes/halg/css/custom.css" type="text/css" rel="stylesheet" />
 
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet" type="text/css" />
   <link href="/styles.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -24,7 +18,7 @@
       <p class="page-header__container__location">
         Charles University, Prague, Czech Republic. June 2-4, 2023
       </p>
-      <img class="page-header__container__logo" src="images/halg-logo.svg" />
+      <img class="page-header__container__logo" src="/images/halg-logo.svg" />
     </div>
   </div>
 
@@ -40,7 +34,7 @@
       </div>
       <div class="collapse navbar-collapse" id="navbar_data">
         <ul class="nav navbar-nav">
-          <li class="active_nav">
+          <li>
             <a href="/index.html">
               <span class="glyphicon glyphicon-home glyphicon-large" aria-hidden="true"></span><br>HALG 2023
             </a>
@@ -62,7 +56,7 @@
             <a href="/programme.html">
               <span class="glyphicon glyphicon-time glyphicon-large" aria-hidden="true"></span><br>Programme</a>
           </li>
-          <li>
+          <li class="active_nav">
             <a href="/registration">
               <span class="glyphicon glyphicon-pencil glyphicon-large" aria-hidden="true"></span><br>Registration</a>
           </li>
