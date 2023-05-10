@@ -7,6 +7,7 @@
   <title>HALG 2023: Registration</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
+  <link rel="icon" href="/images/halg-favicon.png" />
   <link href="/styles.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
@@ -69,6 +70,10 @@
               <span class="glyphicon glyphicon-bed glyphicon-large" aria-hidden="true"></span><br>Hotels</a>
           </li>
           <li>
+            <a href="/for-presenters.html">
+              <span class="glyphicon glyphicon-volume-up glyphicon-large" aria-hidden="true"></span><br>For presenters</a>
+          </li>
+          <li>
             <a href="/anti-harassment.html">
               <span class="glyphicon glyphicon-exclamation-sign glyphicon-large" aria-hidden="true"></span><br/>Anti-Harassment Policy</a>
           </li>
@@ -76,7 +81,7 @@
       </div>
     </div>
   </nav>
-  
+
   <div class="content">
     <div class="container">
       <h1>Registration</h1>
