@@ -231,6 +231,7 @@ def get_all_participants() -> List[Participant]:
     cursor.execute("""
     SELECT *
     FROM participant
+    ORDER BY date_registered DESC
     """)
 
     results = cursor.fetchall()
