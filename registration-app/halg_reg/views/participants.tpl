@@ -94,6 +94,7 @@
             <th>Surname</th>
             <th>Email address</th>
             <th>Affiliation</th>
+            <th>Has paid?</th>
             <th>Address</th>
             <th>City</th>
             <th>Country</th>
@@ -101,7 +102,6 @@
             <th>VAT/TAX no.</th>
             <th>Is student?</th>
             <th>Date registered</th>
-            <th>Has paid?</th>
             <th>Remarks</th>
           </tr>
         </thead>
@@ -113,6 +113,7 @@
               <td>{{p.surname}}</td>
               <td>{{p.email}}</td>
               <td>{{p.affiliation}}</td>
+              <td>{{p.has_paid}}</td>
               <td>{{p.address}}</td>
               <td>{{p.city}}</td>
               <td>{{p.country}}</td>
@@ -120,7 +121,6 @@
               <td>{{p.vat_tax_no}}</td>
               <td>{{p.is_student}}</td>
               <td>{{p.date_registered}}</td>
-              <td>{{p.has_paid}}</td>
               <td>{{p.remarks}}</td>
             </tr>
           % end
