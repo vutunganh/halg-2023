@@ -5,6 +5,7 @@ from gpwebpay import gpwebpay
 from gpwebpay.config import configuration as gpWebpayConfig
 from time import localtime, strftime
 from typing import Optional, List
+import contextlib
 import urllib.parse
 import toml
 import psycopg2
@@ -75,20 +76,13 @@ with db_backend.lock():
     db_backend.apply_migrations(db_backend.to_apply(migrations))
     logger.info("[Migrations] Applied")
 
-## Connect to the database
-db_conn = None
-def connect_to_db():
-    global db_conn
+@contextlib.contextmanager
+def open_db():
     db_conn = psycopg2.connect(app_config['Database']['connection'])
-
-    return db_conn
-
-def get_db_cursor():
-    global db_conn
-    if db_conn is None or db_conn.closed != 0:
-        connect_to_db()
-
-    return db_conn.cursor()
+    try:
+        yield db_conn
+    finally:
+        db_conn.close()
 
 class ParticipantInfo:
     name: str
@@ -169,73 +163,79 @@ class Participant(ParticipantInfo):
 
 ## Database utils
 def register_participant(participant: ParticipantInfo):
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        INSERT INTO
-        participant (name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks)
-        VALUES
-        (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-        RETURNING id
-        """,
-        (participant.name, participant.surname, participant.email, participant.affiliation, participant.address, participant.city, participant.country, participant.zip_code, participant.vat_tax_no, participant.is_student, participant.remarks
-        ))
-        return cursor.fetchone()[0]
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            INSERT INTO
+            participant (name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks)
+            VALUES
+            (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            RETURNING id
+            """,
+            (participant.name, participant.surname, participant.email, participant.affiliation, participant.address, participant.city, participant.country, participant.zip_code, participant.vat_tax_no, participant.is_student, participant.remarks
+            ))
+            return cursor.fetchone()[0]
 
 def set_participant_payment_url(participant_id: int, payment_url: str):
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        UPDATE participant
-        SET payment_url = %s
-        WHERE id = %s
-        """, (payment_url, participant_id,))
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            UPDATE participant
+            SET payment_url = %s
+            WHERE id = %s
+            """, (payment_url, participant_id,))
 
 # `order_number` is participant's id in our case.
 # Yes, if their payment fails, somebody will have to manually intervene and,
 # e.g., remove that participant from the database, and make them register again
 # to get a new `payment_url`. There is no time :(
 def retrieve_payment_url(order_number: int) -> str:
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        SELECT payment_url
-        FROM participant
-        WHERE id = %s
-        """, (order_number,))
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            SELECT payment_url
+            FROM participant
+            WHERE id = %s
+            """, (order_number,))
 
-        res = cursor.fetchone()
-        if res is None:
-            logger.error('Could not find an existing participant with id "{order_number}". They should exist because they managed to pay.')
-            abort(500, 'Could not confirm payment. Please contact the organizers.')
+            res = cursor.fetchone()
+            if res is None:
+                logger.error('Could not find an existing participant with id "{order_number}". They should exist because they managed to pay.')
+                abort(500, 'Could not confirm payment. Please contact the organizers.')
 
-        return res[0]
+            return res[0]
 
 def record_successful_payment(order_number: int) -> None:
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        UPDATE participant
-        SET has_paid = true
-        WHERE id = %s
-        """, (order_number,))
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            UPDATE participant
+            SET has_paid = true
+            WHERE id = %s
+            """, (order_number,))
 
 def get_participant(id: int) -> ParticipantInfo:
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        SELECT name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks
-        FROM participant
-        WHERE id = %s
-        """, (id, ))
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            SELECT name, surname, email, affiliation, address, city, country, zip_code, vat_tax_no, is_student, remarks
+            FROM participant
+            WHERE id = %s
+            """, (id, ))
 
-        return ParticipantInfo(*cursor.fetchone())
+            return ParticipantInfo(*cursor.fetchone())
 
 def get_all_participants() -> List[Participant]:
-    with get_db_cursor() as cursor:
-        cursor.execute("""
-        SELECT *
-        FROM participant
-        ORDER BY date_registered DESC
-        """)
+    with open_db() as db_conn:
+        with db_conn.cursor() as cursor:
+            cursor.execute("""
+            SELECT *
+            FROM participant
+            ORDER BY date_registered DESC
+            """)
 
-        results = cursor.fetchall()
-        return [Participant(*r) for r in results]
+            results = cursor.fetchall()
+            return [Participant(*r) for r in results]
 
 
 # Initialize mailer class
