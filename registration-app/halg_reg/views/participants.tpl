@@ -86,6 +86,12 @@
     <div class="container">
       <h1>Participants</h1>
 
+      <div>
+        <ul>
+          <li><strong>Number of participants who have paid successfully:</strong> {{number_of_paid_participants}}.</li>
+        </ul>
+      </div>
+
       <table class="participants-table">
         <thead>
           <tr>
