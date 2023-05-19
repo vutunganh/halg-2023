@@ -477,7 +477,8 @@ def show_participants_post():
         logger.error('Could not fetch all participants.')
         return abort(500, 'Could not fetch all participants.')
 
-    return dict(participants=participants)
+    number_of_paid_participants = sum(1 if p.has_paid else 0 for p in participants)
+    return dict(participants=participants, number_of_paid_participants=number_of_paid_participants)
 
 
 if auto_run:
