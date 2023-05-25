@@ -127,47 +127,47 @@
         % end
         <div class="input-group">
           <label for="name">Given name (required):</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name" required maxlength=128 />
         </div>
 
         <div class="input-group">
           <label for="surname">Surname:</label>
-          <input type="text" id="surname" name="surname" />
+          <input type="text" id="surname" name="surname" maxlength=128 />
         </div>
 
         <div class="input-group">
           <label for="email">Email address (required):</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" required maxlength=256 />
         </div>
 
         <div class="input-group">
           <label for="affiliation">Affiliation:</label>
-          <input type="text" id="affiliation" name="affiliation" />
+          <input type="text" id="affiliation" name="affiliation" maxlength=256 />
         </div>
 
         <div class="input-group">
           <label for="address">Address (street etc.) (required):</label>
-          <input type="text" id="address" name="address" required />
+          <input type="text" id="address" name="address" required maxlength=1024 />
         </div>
 
         <div class="input-group">
           <label for="city">City (required):</label>
-          <input type="text" id="city" name="city" required />
+          <input type="text" id="city" name="city" required maxlength=1024 />
         </div>
 
         <div class="input-group">
           <label for="country">Country (required):</label>
-          <input type="text" id="country" name="country" required />
+          <input type="text" id="country" name="country" required maxlength=1024 />
         </div>
 
         <div class="input-group">
           <label for="zip-code">ZIP Code:</label>
-          <input type="text" id="zip-code" name="zipCode" />
+          <input type="text" id="zip-code" name="zipCode" maxlength=64 />
         </div>
 
         <div class="input-group">
           <label for="vat-tax-no">VAT/TAX no.:</label>
-          <input type="text" id="vat-tax-no" name="vatTaxNo" />
+          <input type="text" id="vat-tax-no" name="vatTaxNo" maxlength=64 />
         </div>
 
         <div class="input-group">
@@ -180,7 +180,7 @@
 
         <div class="input-group">
           <label for="remarks">Remarks for the organizers:</label>
-          <textarea id="remarks" name="remarks"></textarea>
+          <textarea id="remarks" name="remarks" maxlength=2048></textarea>
         </div>
 
         <p>

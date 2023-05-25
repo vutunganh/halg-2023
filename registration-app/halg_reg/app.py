@@ -265,12 +265,12 @@ def show_registration_form():
 
 # Web server utils
 
-def retrieve_form_field(request: LocalRequest, field_name: str) -> Optional[str]:
+def retrieve_form_field(request: LocalRequest, field_name: str, size_cap = 1024) -> Optional[str]:
     field = request.forms.getunicode(field_name)
     if field is None:
         return None
 
-    return field.strip()
+    return field.strip()[:size_cap]
 
 # TODO: Set this route to root.
 #       See @app.get('/registration.html') for the reason.
@@ -279,27 +279,27 @@ def retrieve_form_field(request: LocalRequest, field_name: str) -> Optional[str]
 def register():
     errors = []
 
-    def retrieve_field(field_name: str) -> Optional[str]:
-        return retrieve_form_field(request, field_name)
+    def retrieve_field(field_name: str, size_cap = 1024) -> Optional[str]:
+        return retrieve_form_field(request, field_name, size_cap)
 
-    def retrieve_nonempty_field(field_name: str) -> str:
-        res = retrieve_field(field_name) or ''
+    def retrieve_nonempty_field(field_name: str, size_cap = 1024) -> str:
+        res = retrieve_field(field_name, size_cap) or ''
         if len(res) < 1:
             errors.append("Field '{}' must not be empty".format(field_name))
 
         return res
 
     # retrieve name
-    name = retrieve_nonempty_field('name')
+    name = retrieve_nonempty_field('name', 128)
 
     # retrieve surname
-    surname = retrieve_field('surname')
+    surname = retrieve_field('surname', 128)
 
     # retrieve email address
-    email = retrieve_nonempty_field('email')
+    email = retrieve_nonempty_field('email', 256)
 
     # retrieve affiliation
-    affiliation = retrieve_field('affiliation')
+    affiliation = retrieve_field('affiliation', 256)
 
     # retrieve address
     address = retrieve_nonempty_field('address')
@@ -308,13 +308,13 @@ def register():
     city = retrieve_nonempty_field('city')
 
     # retrieve city
-    country = retrieve_nonempty_field('country')
+    country = retrieve_nonempty_field('country', 128)
 
     # retrieve zip code
-    zip_code = retrieve_field('zipCode')
+    zip_code = retrieve_field('zipCode', 64)
 
     # retrieve zip code
-    vat_tax_no = retrieve_field('vatTaxNo')
+    vat_tax_no = retrieve_field('vatTaxNo', 64)
 
     # retrieve whether they are a student
     is_student_field = retrieve_field('isStudent')
@@ -322,7 +322,7 @@ def register():
     # we have to convert them to a string here
     is_student = True if is_student_field == "on" else False
 
-    remarks = retrieve_field('remarks')
+    remarks = retrieve_field('remarks', 2048)
 
     if len(errors) > 0:
         return dict(errors=errors)
