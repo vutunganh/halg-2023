@@ -96,8 +96,10 @@
         <li>Students: 4000 CZK</li>
         <li>Non-students: 5000 CZK</li>
       </ul>
-      <p>On-site registration: 6000 CZK</p>
-
+      <p>
+      On-site registration: 6000 CZK.
+      Payment for the on-site registration fee can be done either at the registration table in cash, or using a credit card via the registration form.
+      </p>
 
       <h2 id="registration-form">Registration form</h2>
       <form id="registration-form" name="registrationForm" action="#registration-form" method="post" accept-charset="utf-8">
